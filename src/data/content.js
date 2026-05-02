@@ -41,56 +41,6 @@ export const VALUE_PROPS = [
   }
 ];
 
-export const PRODUCTS_DATA = [
-  {
-    id: "quantum",
-    name: "Quantum Security Systems",
-    category: "Quantum Computing",
-    brochure: "/brochures/quantum.pdf",
-    features: [
-      "Post-quantum cryptography",
-      "Lattice-based encryption",
-      "High security protocols"
-    ],
-    specs: [
-      ["Security Level", "Quantum Resistant"],
-      ["Algorithm", "Lattice-based"],
-      ["Use Case", "Defence & Govt"]
-    ]
-  },
-  {
-    id: "ai",
-    name: "AI/ML Systems",
-    category: "Artificial Intelligence",
-    brochure: "/brochures/ai.pptx",
-    features: [
-      "Deep learning models",
-      "Natural language processing",
-      "Predictive analytics"
-    ],
-    specs: [
-      ["Framework", "TensorFlow / PyTorch"],
-      ["Deployment", "Cloud / Edge"],
-      ["Use Case", "Automation"]
-    ]
-  },
-  {
-    id: "network",
-    name: "Networking Systems",
-    category: "Telecom",
-    brochure: "/brochures/network.pdf",
-    features: [
-      "High-speed protocols",
-      "Smart NIC cards",
-      "Secure data transmission"
-    ],
-    specs: [
-      ["Speed", "Up to 100Gbps"],
-      ["Protocol", "TCP/IP Offload"],
-      ["Use Case", "Enterprise Networks"]
-    ]
-  }
-];
 
 export const SOLUTIONS_DATA = [
   {
@@ -150,4 +100,156 @@ export const PARTNERS = [
   { name: "ARMY", logo: "/partners/Indian-army.png" },
   { name: "LATTICE", logo: "/partners/lattice_logo.png" },
   { name: "SAC", logo: "/partners/sac.png" }
+];
+export const PRODUCT_CATEGORIES = [
+  {
+    name: "IP Core",
+    products: [
+      {
+        id: "ip1",
+        name: "TCP IP Offload Engine",
+        brochure: "/brochures/ip-core/1G10G TCP IP Offload Engine (1).pdf"
+      },
+      {
+        id: "ip2",
+        name: "LDPC Codec",
+        brochure: "/brochures/ip-core/LDPC CODEC.pdf"
+      },
+      {
+        id: "ip3",
+        name: "Redundant Ethernet",
+        brochure: "/brochures/ip-core/Redundant Ethernet.pdf"
+      }
+    ]
+  },
+
+  {
+  name: "TSN",
+  products: [
+    {
+      id: "tsn1",
+      name: "Determinism in TSN White Paper",
+      brochure: "/brochures/tsn/Determinism in TSN White Paper.pdf"
+    },
+    {
+      id: "tsn2",
+      name: "DIN Mounted Industrial Switch",
+      brochure: "/brochures/tsn/DIN Mounted Industrial Switch.pdf"
+    },
+    {
+      id: "tsn3",
+      name: "TSN ATE Tester Proposal",
+      brochure: "/brochures/tsn/QBit_TSN_ATE_Tester_Proposal_for_NI_compliance updated.pdf"
+    },
+    {
+      id: "tsn4",
+      name: "TSN Conformance Tester Proposal",
+      brochure: "/brochures/tsn/QBitTSNConformance Tester Proposal for NI compliance.pdf"
+    },
+    {
+      id: "tsn5",
+      name: "QBL-NET-X1000 Compact TSN Network",
+      brochure: "/brochures/tsn/QBL-NET-X1000 Compact TSN Network Tester.pdf"
+    },
+    {
+      id: "tsn6",
+      name: "TSN End Point PCIe NIC",
+      brochure: "/brochures/tsn/TSN END POINT PCIe NIC.pdf"
+    },
+    {
+      id: "tsn7",
+      name: "TSN End Point System",
+      brochure: "/brochures/tsn/TSN End Point System.pdf"
+    },
+    {
+      id: "tsn8",
+      name: "TSN Ethernet Switch QSXG24-Mil",
+      brochure: "/brochures/tsn/TSN ETHERNET SWITCH (QSXG24)-Mil.pdf"
+    },
+    {
+      id: "tsn9",
+      name: "TSN Ethernet Switch QSXG4-I",
+      brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG4-I.pdf"
+    },
+    {
+      id: "tsn10",
+      name: "TSN Ethernet Switch QSXG12",
+      brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG12.pdf"
+    },
+    {
+      id: "tsn11",
+      name: "TSN Ethernet Switch QSXG24",
+      brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG24.pdf"
+    },
+    {
+      id: "tsn12",
+      name: "TSN IP",
+      brochure: "/brochures/tsn/TSN IP.pdf"
+    }
+  ]
+},
+  {
+    name: "SmartNic",
+    folder: "smartnic",
+    products: [
+       {
+      id: "nic1",
+      name: "QBIT PQC Accelerator Endpoint (QPAE)",
+      brochure: "/brochures/smartnic/QBIT PQC Accelerator Endpoint (QPAE).pdf"
+    },
+    {
+      id: "nic2",
+      name: "Qbit ULL SmartNic",
+      brochure: "/brochures/smartnic/Qbit ULL SmartNic.pdf"
+    }
+    ]
+  },
+   {
+    name: "Satcom",
+    folder: "satcom",
+    products: [
+     {
+      id: "sat1",
+      name: "High Data Rate Receiver with Inbuilt Modem",
+      brochure: "/brochures/satcom/High Data Rate Receiver with Inbuilt Modulator.pdf"
+    },
+    {
+      id: "sat2",
+      name: "Low Data Rate Receiver with Inbuilt Modem",
+      brochure: "/brochures/satcom/Low Data Rate Receiver with Inbuilt Modulator.pdf"
+    },
+    {
+      id: "sat3",
+      name: "Qbit Advanced Satellite Modem (QASM)",
+      brochure: "/brochures/satcom/Qbit Advanced Satellite Modem (QASM-01).pdf"
+    },
+    {
+      id: "sat4",
+      name: "Qbit Integrated Telemetry Receiver (QITR)",
+      brochure: "/brochures/satcom/Qbit Integrated Telemetry Receiver (QITR01).pdf"
+    }
+    ]
+  },
+    {
+    name: "Video Processing",
+    folder: "videoProcessing",
+    products: [
+      {
+        id: "vid1",
+        name: "Dual Video Recorder",
+        brochure: "/brochures/videoProcessing/Dual Video Recorder (DVR).pdf"
+      }
+    ]
+  },
+  {
+    name: "WR",
+    folder: "wr",
+    products: [
+      {
+        id: "wr1",
+        name: "White Rabbit",
+        brochure: "/brochures/wr/White Rabbit Switch (WRSv4).pdf"
+      }
+    ]
+  }
 ];
