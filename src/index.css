@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  background: #04070F;
+  color: #D4DCE8;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+/* PAGE FADE IN */
+body {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CARD HOVER */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,200,255,0.2);
+}
+
+/* BUTTON HOVER */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.page {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.product-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,200,255,0.25);
+}
+.partners-section {
+  overflow: hidden;
+  padding: 2rem 0;
+  background: #0b0f1a;
+}
+
+.partners-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: scrollPartners 20s linear infinite;
+}
+
+.partner-item img {
+  height: 40px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.partner-item img:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* SCROLL ANIMATION */
+@keyframes scrollPartners {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.partners-section:hover .partners-track {
+  animation-play-state: paused;
+}
+
+.partner-item img {
+  filter: grayscale(100%);
+}
+
+.partner-item img:hover {
+  filter: grayscale(0%);
+}
+* {
+  outline: 1px solid rgba(255,0,0,0.1);
+}
+/* HIDE DESKTOP MENU ON MOBILE */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .nav-mobile-btn {
+    display: block !important;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.partner-item img {
+  height: clamp(24px, 4vw, 40px);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+}
+html {
+  scroll-behavior: smooth;
+}
+button:hover {
+  transform: translateY(-2px);
+}
+body {
+  background: radial-gradient(circle at top, #0b1220, #04070f);
+}
