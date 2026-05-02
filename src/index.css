@@ -112,9 +112,7 @@ button:hover {
 .partner-item img:hover {
   filter: grayscale(0%);
 }
-* {
-  outline: 1px solid rgba(255,0,0,0.1);
-}
+
 /* HIDE DESKTOP MENU ON MOBILE */
 @media (max-width: 768px) {
   .nav-desktop {
