@@ -1,160 +1,151 @@
 import { useState } from "react";
-import { C, FD, FB } from "../styles/theme";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
     name: "",
     org: "",
     email: "",
+    phone: "",
     message: ""
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const set = (key, value) => {
     setForm((f) => ({ ...f, [key]: value }));
   };
 
+  const handleSubmit = async () => {
+    if (!form.name || !form.email) {
+      alert("Please fill required fields");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbwnbwiJNwsqje6UMalsX9lJV0QzKawFtBKuH9Pv-xe1ucAFmVdwQsbw1M1ksyWKhPGN/exec",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            name: form.name,
+            org: form.org,
+            email: form.email,
+            phone: form.phone,
+            message: form.message
+          }),
+        }
+      );
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div style={{ paddingTop: "80px" }}>
+    <div style={{ padding: "2rem", color: "#fff" }}>
+      {!submitted ? (
+        <div style={{ maxWidth: "400px", margin: "0 auto" }}>
+          <h2>Contact Us</h2>
 
-      {/* HEADER */}
-      <section style={{
-        padding: "clamp(3rem, 6vw, 5rem) 1rem",
-        background: C.bgPanel
-      }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <h1 style={{
-            fontFamily: FD,
-            fontSize: "clamp(1.8rem, 5vw, 3rem)"
-          }}>
-            Contact <span style={{ color: C.cyan }}>Engineering Team</span>
-          </h1>
+          <input
+            placeholder="Name *"
+            value={form.name}
+            onChange={(e) => set("name", e.target.value)}
+            style={input}
+          />
 
-          <p style={{
-            fontFamily: FB,
-            color: C.textMid,
-            maxWidth: 500
-          }}>
-            Tell us your requirements — our engineers will respond within 24 hours.
-          </p>
+          <input
+            placeholder="Organization"
+            value={form.org}
+            onChange={(e) => set("org", e.target.value)}
+            style={input}
+          />
+
+          <input
+            placeholder="Phone"
+            value={form.phone}
+            onChange={(e) => set("phone", e.target.value)}
+            style={input}
+          />
+
+          <input
+            placeholder="Email *"
+            value={form.email}
+            onChange={(e) => set("email", e.target.value)}
+            style={input}
+          />
+
+          <textarea
+            placeholder="Message"
+            value={form.message}
+            onChange={(e) => set("message", e.target.value)}
+            style={{ ...input, height: "100px" }}
+          />
+
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            style={{
+              width: "100%",
+              padding: "12px",
+              marginTop: "10px",
+              background: loading ? "#444" : "#00C8FF",
+              color: "#000",
+              border: "none",
+              borderRadius: "6px",
+              cursor: loading ? "not-allowed" : "pointer",
+              opacity: loading ? 0.6 : 1
+            }}
+          >
+            {loading ? "Sending..." : "Submit Request →"}
+          </button>
         </div>
-      </section>
+      ) : (
+        <div style={{ textAlign: "center" }}>
+          <h2>✅ Request Sent</h2>
+          <p>We’ll get back to you soon.</p>
 
-      {/* FORM */}
-      <section style={{ padding: "clamp(2rem, 5vw, 4rem) 1rem" }}>
-        <div style={{
-          maxWidth: 1000,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "2rem"
-        }}>
-
-          {/* LEFT */}
-          <div>
-            <h2 style={{ fontFamily: FD }}>Reach Us</h2>
-
-            <p style={{ fontFamily: FB }}>Office Address: 104, FF, IRIS Tech Park, Tower -A, Sector -48, Sohna Road, Gurgaon-122018
-Hyderabad Office: 704, 7th floor Asian Suncity Commercial, Block-B, Gachibowli, Kondapur, Hyderabad, Telangana, India, 500084
-Registered Address: D-614, Rohini Heights, Sector 29, Rohini, New Delhi-110085</p>
-            <p style={{ fontFamily: FB }}>✉ sales@qbitlabs.co.in</p>
-            <p style={{ fontFamily: FB }}>🕒 Mon–Fri, 9AM–6PM</p>
-             <p style={{ fontFamily: FB }}>Contact +91 124 404873</p>
-          </div>
-
-          {/* FORM */}
-          {!submitted ? (
-            <div style={{
-              background: C.bgCard,
-              padding: "1.5rem",
-              border: `1px solid ${C.border}`,
-              borderRadius: "10px"
-            }}>
-              <h3 style={{ fontFamily: FD }}>Send Request</h3>
-
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                gap: "0.8rem"
-              }}>
-
-                <input
-                  placeholder="Full Name"
-                  value={form.name}
-                  onChange={(e) => set("name", e.target.value)}
-                  style={inputStyle}
-                />
-
-                <input
-                  placeholder="Organization"
-                  value={form.org}
-                  onChange={(e) => set("org", e.target.value)}
-                  style={inputStyle}
-                />
-
-                <input
-                  placeholder="Email"
-                  type="email"
-                  value={form.email}
-                  onChange={(e) => set("email", e.target.value)}
-                  style={inputStyle}
-                />
-
-                <textarea
-                  placeholder="Your Requirement"
-                  value={form.message}
-                  onChange={(e) => set("message", e.target.value)}
-                  style={{
-                    ...inputStyle,
-                    height: 100
-                  }}
-                />
-
-                <button
-                  onClick={() => form.name && form.email && setSubmitted(true)}
-                  style={{
-                    background: C.cyan,
-                    border: "none",
-                    padding: "12px",
-                    fontWeight: "bold",
-                    borderRadius: "6px",
-                    cursor: "pointer"
-                  }}
-                >
-                  Submit Request →
-                </button>
-
-              </div>
-            </div>
-          ) : (
-            <div style={{
-              background: C.bgCard,
-              padding: "2rem",
-              border: `1px solid ${C.border}`,
-              borderRadius: "10px",
-              textAlign: "center"
-            }}>
-              <h3 style={{ color: C.cyan }}>✓ Request Sent</h3>
-              <p style={{ fontFamily: FB }}>
-                Our team will contact you within 24 hours.
-              </p>
-            </div>
-          )}
-
+          <button
+            onClick={() => {
+              setSubmitted(false);
+              setForm({
+                name: "",
+                org: "",
+                email: "",
+                phone: "",
+                message: ""
+              });
+            }}
+            style={{
+              marginTop: "1rem",
+              padding: "10px 20px",
+              background: "transparent",
+              border: "1px solid #00C8FF",
+              color: "#00C8FF",
+              cursor: "pointer"
+            }}
+          >
+            Send Another
+          </button>
         </div>
-      </section>
-
+      )}
     </div>
   );
 }
 
-const inputStyle = {
+const input = {
   width: "100%",
-  background: "rgba(255,255,255,0.05)",
-  border: "1px solid rgba(0,200,255,0.2)",
   padding: "10px",
+  marginTop: "8px",
+  background: "#050810",
+  border: "1px solid rgba(255,255,255,0.1)",
   color: "#fff",
-  borderRadius: "6px",
-  outline: "none"
+  borderRadius: "6px"
 };
