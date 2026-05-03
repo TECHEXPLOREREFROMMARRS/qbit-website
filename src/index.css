@@ -1,119 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700&display=swap');
+
+/* ─── BASE ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #04070F;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top, #0b1220, #04070f);
   color: #D4DCE8;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  animation: fadeIn 0.8s ease-in;
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.05em;
 }
 
 button {
   cursor: pointer;
-}
-/* PAGE FADE IN */
-body {
-  animation: fadeIn 0.8s ease-in;
+  transition: all 0.2s ease;
 }
 
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
+}
+
+/* ─── ANIMATIONS ────────────────────────────────────── */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* CARD HOVER */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes scrollPartners {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes moveGrid {
+  from { transform: translateY(0); }
+  to   { transform: translateY(60px); }
+}
+
+@keyframes scanMove {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 12px rgba(0, 200, 255, 0.4); }
+  50%       { text-shadow: 0 0 25px rgba(0, 200, 255, 0.9); }
+}
+
+/* ─── PAGE ──────────────────────────────────────────── */
+.page {
+  animation: fadeIn 0.5s ease;
+}
+
+/* ─── CARDS ─────────────────────────────────────────── */
 .card-hover {
   transition: all 0.3s ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,200,255,0.2);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(0, 200, 255, 0.6);
+  box-shadow: 0 15px 40px rgba(0, 200, 255, 0.15);
 }
 
-/* BUTTON HOVER */
-button {
-  transition: all 0.2s ease;
-}
-
-button:hover {
+.card-hover:hover img {
   transform: scale(1.05);
 }
 
-.page {
-  animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ─── PRODUCT CARD ──────────────────────────────────── */
 .product-card {
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .product-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0,200,255,0.25);
-}
-.partners-section {
-  overflow: hidden;
-  padding: 2rem 0;
-  background: #0b0f1a;
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(0, 200, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 200, 255, 0.1);
 }
 
+/* ─── PARTNERS ──────────────────────────────────────── */
 .partners-track {
   display: flex;
   gap: 3rem;
   width: max-content;
   animation: scrollPartners 20s linear infinite;
+  align-items: center;
 }
 
-.partner-item img {
-  height: 40px;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.partner-item img:hover {
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-/* SCROLL ANIMATION */
-@keyframes scrollPartners {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.partners-section:hover .partners-track {
+.partners-track:hover {
   animation-play-state: paused;
 }
 
 .partner-item img {
+  height: 70px;                /* ✅ increased from 45px */
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
   filter: grayscale(100%);
+  transition: all 0.3s ease;
 }
 
 .partner-item img:hover {
+  opacity: 1;
   filter: grayscale(0%);
+  transform: scale(1.15);
 }
 
-/* HIDE DESKTOP MENU ON MOBILE */
+/* ─── NAV ───────────────────────────────────────────── */
+.nav-desktop button {
+  position: relative;
+}
+
+.nav-desktop button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #00C8FF;
+  transition: 0.3s;
+}
+
+.nav-desktop button:hover::after {
+  width: 100%;
+}
+
+/* ─── MEGA MENU ─────────────────────────────────────── */
+.mega-menu-horizontal {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  display: flex;
+  background: #0b1220;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 200, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 999;
+}
+
+.mega-menu-horizontal::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.mega-col {
+  min-width: 220px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mega-title {
+  padding: 12px;
+  color: #00C8FF;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.mega-title:hover,
+.mega-title.active {
+  background: rgba(0, 200, 255, 0.1);
+}
+
+.mega-item {
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  color: #b8c2d1;
+  cursor: pointer;
+}
+
+.mega-item:hover {
+  color: #00C8FF;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ─── BACKGROUND EFFECTS ────────────────────────────── */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 200, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 255, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+  animation: moveGrid 20s linear infinite;
+}
+
+.hero-glow-bg {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.2), transparent 60%);
+  filter: blur(80px);
+  top: -100px;
+  left: -100px;
+  z-index: 0;
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 200, 255, 0.4);
+  top: 0;
+  animation: scanMove 4s linear infinite;
+}
+
+/* ─── UTILITY ───────────────────────────────────────── */
+.hero-title {
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+.soft-glow {
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
+}
+
+.soft-glow-strong {
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 12px rgba(0, 200, 255, 0.4);
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────── */
 @media (max-width: 768px) {
   .nav-desktop {
     display: none !important;
@@ -122,51 +255,8 @@ button:hover {
   .nav-mobile-btn {
     display: block !important;
   }
-}
 
-body {
-  overflow-x: hidden;
-}
-
-.partner-item img {
-  height: clamp(24px, 4vw, 40px);
-}
-.product-card:hover {
-  transform: translateY(-6px);
-}
-html {
-  scroll-behavior: smooth;
-}
-button:hover {
-  transform: translateY(-2px);
-}
-body {
-  background: radial-gradient(circle at top, #0b1220, #04070f);
-}
-
-.product-card {
-  transition: all 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  border-color: rgba(0,200,255,0.5);
-  box-shadow: 0 10px 30px rgba(0,200,255,0.1);
-}
-.card-hover:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0,200,255,0.4);
-  box-shadow: 0 10px 30px rgba(0,200,255,0.1);
-}
-.card-hover {
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(0,200,255,0.6);
-  box-shadow: 0 15px 40px rgba(0,200,255,0.15);
-}
-.card-hover:hover img {
-  transform: scale(1.05);
+  .hero-right {
+    display: none;
+  }
 }

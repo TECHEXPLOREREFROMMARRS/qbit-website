@@ -20,9 +20,18 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    injectFonts();
-  }, []);
-
+  injectFonts();
+  if (page === "ProductDetail") {
+    try {
+      const saved = localStorage.getItem("selectedProduct");
+      if (saved) {
+        setSelectedProduct(JSON.parse(saved));
+      }
+    } catch {
+      setSelectedProduct(null);
+    }
+  }
+}, [page]);
   const renderPage = () => {
     switch (page) {
       case "ProductDetail":

@@ -34,34 +34,33 @@ export const FOUNDERS = [
     name: "Pradeep Kumar",
     role: "Founder & CEO",
     desc: "Leads vision and system architecture with focus on defence-grade communication and computing systems.",
-    image: "/founders/pk.jpg"
+    image: "/founders/pk.jpg"      // already lowercase ✅
   },
   {
     name: "Pradeep Aggarwal",
     role: "Co-Founder & CTO",
     desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
-    image: "/founders/pa.jpg"
+    image: "/founders/pa.JPG"      // ✅ uppercase
   },
-    {
+  {
     name: "Vivek Mani Tiwari",
     role: "VP",
     desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
-    image: "/founders/vm.jpg"
+    image: "/founders/vm.JPG"      // ✅ uppercase
   },
-      {
+  {
     name: "Kapil Gupta",
     role: "R&D director",
     desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
-    image: "/founders/kp.jpg"
+    image: "/founders/kp.JPG"      // ✅ uppercase
   }
-
 ];
 export const HERO_CONTENT = {
-  heading: "Emerging Technologies for Complex Problems",
+  heading: "Engineering the Future of Secure Systems",
   subheading:
-    "Quantum Computing · AI/ML · Networking · Defence Systems · IoT",
+     "Advanced Networking · Defence Systems · AI/ML · Quantum Technologies",
   tagline:
-    "Making something possible that isn’t possible with classical computing."
+    "Building high-performance, mission-critical systems for real-world deployment."
 };
 
 export const VALUE_PROPS = [
@@ -78,6 +77,11 @@ export const VALUE_PROPS = [
     desc: "Constantly evolving with cutting-edge technologies."
   }
 ];
+
+
+export const HERO_ASSETS = {
+  visual: "/hero/defence-tech.jpg" // or wherever your image actually is
+};
 
 
 export const SOLUTIONS_DATA = [
@@ -140,6 +144,7 @@ export const PARTNERS = [
   { name: "SAC", logo: "/partners/sac.png" }
 ];
 export const PRODUCT_CATEGORIES = [
+
   {
     name: "IP Core",
     products: [
@@ -290,4 +295,69 @@ export const PRODUCT_CATEGORIES = [
       }
     ]
   }
+  
 ];
+
+export const PRODUCT_DETAILS = {
+  nic1: {
+    image: "/products/placeholder.jpg",
+    desc: "Post-quantum cryptography accelerator for secure systems.",
+    features: [
+      "PQC acceleration",
+      "Low latency encryption",
+      "Secure pipeline"
+    ],
+    specs: [
+      ["Latency", "Ultra Low"],
+      ["Throughput", "High"],
+      ["Interface", "PCIe"],
+      ["Use Case", "Defence"]
+    ]
+  },
+
+  nic2: {
+    image: "/products/placeholder.jpg",
+    desc: "Ultra-low latency SmartNIC for high-performance networking.",
+    features: [
+      "FPGA acceleration",
+      "100Gbps throughput",
+      "Ultra-low latency"
+    ],
+    specs: [
+      ["Latency", "<1µs"],
+      ["Throughput", "100Gbps"],
+      ["Interface", "PCIe Gen4"],
+      ["Application", "AI / Defence"]
+    ]
+  },
+
+  sat1: {
+    image: "/products/placeholder.jpg",
+    desc: "High-speed satellite communication receiver.",
+    features: [
+      "High bandwidth",
+      "Reliable decoding",
+      "Secure communication"
+    ],
+    specs: [
+      ["Frequency", "Wideband"],
+      ["Latency", "Low"],
+      ["Use Case", "Satellite Systems"]
+    ]
+  },
+
+  wr1: {
+    image: "/products/placeholder.jpg",
+    desc: "Precision timing system using White Rabbit protocol.",
+    features: [
+      "Sub-nanosecond sync",
+      "Deterministic timing",
+      "Industrial grade"
+    ],
+    specs: [
+      ["Accuracy", "<1ns"],
+      ["Protocol", "White Rabbit"],
+      ["Use Case", "Timing Systems"]
+    ]
+  }
+};

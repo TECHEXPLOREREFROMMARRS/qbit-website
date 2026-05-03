@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { C, FD, FB } from "../styles/theme";
 
-function ProductCard({ product: p, onModal, onNav }) {
+function ProductCard({ product: p, onNav }) {
   const [expanded, setExpanded] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [user, setUser] = useState({
@@ -19,11 +20,14 @@ function ProductCard({ product: p, onModal, onNav }) {
 
   return (
     <>
-      {/* MAIN CARD */}
+      {/* CARD */}
       <div
         className="product-card"
         style={{
-          ...card,
+          background: "linear-gradient(145deg, #0b1220, #050810)",
+          border: "1px solid rgba(0,200,255,0.15)",
+          padding: "1.2rem",
+          borderRadius: "10px",
           display: "flex",
           flexDirection: "column",
           gap: "1rem",
@@ -33,135 +37,104 @@ function ProductCard({ product: p, onModal, onNav }) {
         {/* LOGO */}
         <img
           src="/qbits-logo.png"
-          alt="Qbit Labs"
+          alt="Qbit"
           style={{
             position: "absolute",
             top: "10px",
-            right: "60px",
-            width: "28px",
-            opacity: 0.7,
-            pointerEvents: "none"
+            right: "10px",
+            width: "24px",
+            opacity: 0.5
           }}
         />
 
-        {/* TOP BAR */}
+        {/* CATEGORY */}
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 2,
-            background: p.color,
-            opacity: 0.7
-          }}
-        />
-
-        {/* TITLE */}
-        <div>
-          <div
-            style={{
-              fontFamily: FB,
-              fontSize: "0.65rem",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: p.color,
-              fontWeight: 600,
-              marginBottom: "0.25rem"
-            }}
-          >
-            {p.category}
-          </div>
-
-          <h3
-            style={{
-              fontFamily: FD,
-              fontSize: "1.5rem",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "0.04em",
-              color: C.text,
-              margin: 0
-            }}
-          >
-            {p.name}
-          </h3>
-        </div>
-
-        {/* TAGLINE */}
-        <p
-          style={{
-            fontFamily: FB,
-            fontSize: "0.82rem",
-            color: C.textMid,
-            lineHeight: 1.6
+            fontSize: "0.65rem",
+            letterSpacing: "0.12em",
+            color: p.color || "#00C8FF",
+            textTransform: "uppercase"
           }}
         >
+          {p.category}
+        </div>
+
+        {/* NAME */}
+        <h3
+          style={{
+            fontFamily: FD,
+            fontSize: "1.2rem",
+            margin: 0
+          }}
+        >
+          {p.name}
+        </h3>
+
+        {/* TAGLINE */}
+        <p style={{ fontSize: "0.85rem", color: "#9aa4b2" }}>
           {p.tagline}
         </p>
 
         {/* FEATURES */}
         <div>
-          <div
-            style={{
-              fontFamily: FB,
-              fontSize: "0.62rem",
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              color: C.textDim,
-              marginBottom: "0.5rem"
-            }}
-          >
-            KEY FEATURES
-          </div>
-
-          {p.features.map((f) => (
-            <div
-              key={f}
-              style={{
-                fontFamily: FB,
-                fontSize: "0.78rem",
-                color: C.textMid,
-                display: "flex",
-                gap: "0.4rem",
-                marginBottom: "0.3rem"
-              }}
-            >
-              <span style={{ color: p.color }}>›</span>
-              {f}
+          {(p.features || []).map((f) => (
+            <div key={f} style={{ fontSize: "0.8rem", color: "#9aa4b2" }}>
+              • {f}
             </div>
           ))}
         </div>
 
-        {/* DOWNLOAD BUTTON (UPDATED) */}
+        {/* DOWNLOAD BUTTON */}
         <button
-          // onClick={() => setShowForm(true)}
+          onClick={() => setShowForm(true)}
           style={{
-            display: "inline-block",
             marginTop: "10px",
             background: "#00C8FF",
             color: "#000",
-            padding: "6px 12px",
+            padding: "8px",
             fontSize: "0.8rem",
             borderRadius: "4px",
-            fontWeight: "bold",
             border: "none",
-            cursor: "pointer"
+            cursor: "pointer",
+            fontWeight: "600"
           }}
         >
           Download Brochure ↓
+        </button>
+
+        {/* ✅ DETAILS BUTTON (FIXED) */}
+        <button
+          onClick={() => {
+            localStorage.setItem(
+              "selectedProduct",
+              JSON.stringify(p)
+            );
+            onNav("ProductDetail");
+          }}
+          style={{
+            background: "transparent",
+            border: "1px solid rgba(255,255,255,0.2)",
+            color: "#fff",
+            padding: "8px",
+            fontSize: "0.8rem",
+            borderRadius: "4px",
+            cursor: "pointer"
+          }}
+        >
+          View Details →
         </button>
 
         {/* SPECS TOGGLE */}
         <button
           onClick={() => setExpanded(!expanded)}
           style={{
-            marginTop: "0.5rem",
+            marginTop: "5px",
             background: "transparent",
-            border: `1px solid ${C.cyan}`,
-            color: C.cyan,
-            padding: "6px 10px",
-            cursor: "pointer"
+            border: "1px solid #00C8FF",
+            color: "#00C8FF",
+            padding: "6px",
+            cursor: "pointer",
+            fontSize: "0.75rem"
           }}
         >
           {expanded ? "Hide Specs ▲" : "View Specs ▼"}
@@ -169,12 +142,14 @@ function ProductCard({ product: p, onModal, onNav }) {
 
         {/* SPECS */}
         {expanded && (
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <table style={{ width: "100%", fontSize: "0.75rem" }}>
             <tbody>
-              {p.specs.map(([param, val]) => (
-                <tr key={param} style={{ borderBottom: `1px solid ${C.borderSub}` }}>
-                  <td style={{ fontSize: "0.78rem", padding: "0.4rem 0" }}>{param}</td>
-                  <td style={{ textAlign: "right", color: p.color }}>{val}</td>
+              {(p.specs || []).map(([k, v]) => (
+                <tr key={k}>
+                  <td>{k}</td>
+                  <td style={{ textAlign: "right", color: "#00C8FF" }}>
+                    {v}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -182,18 +157,12 @@ function ProductCard({ product: p, onModal, onNav }) {
         )}
 
         {/* USE CASES */}
-        <div>
-          <div style={{ fontSize: "0.62rem", marginBottom: "0.5rem" }}>
-            USE CASES
-          </div>
-
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-            {p.useCases.map((u) => (
-              <span key={u} style={{ fontSize: "0.7rem" }}>
-                {u}
-              </span>
-            ))}
-          </div>
+        <div style={{ fontSize: "0.75rem", color: "#9aa4b2" }}>
+          {(p.useCases || []).map((u) => (
+            <span key={u} style={{ marginRight: "6px" }}>
+              {u}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -227,31 +196,36 @@ function ProductCard({ product: p, onModal, onNav }) {
             <input
               placeholder="Name"
               value={user.name}
-              onChange={(e) => setUser({ ...user, name: e.target.value })}
-              style={inputStyle}
+              onChange={(e) =>
+                setUser({ ...user, name: e.target.value })
+              }
+              style={input}
             />
 
             <input
               placeholder="Email"
               value={user.email}
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-              style={inputStyle}
+              onChange={(e) =>
+                setUser({ ...user, email: e.target.value })
+              }
+              style={input}
             />
 
             <input
               placeholder="Phone"
               value={user.phone}
-              onChange={(e) => setUser({ ...user, phone: e.target.value })}
-              style={inputStyle}
+              onChange={(e) =>
+                setUser({ ...user, phone: e.target.value })
+              }
+              style={input}
             />
 
             <button
               onClick={() => {
                 if (!user.name || !user.email) {
-                  alert("Please fill required fields");
+                  alert("Fill required fields");
                   return;
                 }
-
                 setShowForm(false);
                 handleDownload();
               }}
@@ -266,6 +240,21 @@ function ProductCard({ product: p, onModal, onNav }) {
             >
               Submit & Download
             </button>
+
+            <button
+              onClick={() => setShowForm(false)}
+              style={{
+                marginTop: "10px",
+                background: "transparent",
+                border: "1px solid #555",
+                padding: "8px",
+                width: "100%",
+                cursor: "pointer",
+                color: "#fff"
+              }}
+            >
+              Cancel
+            </button>
           </div>
         </div>
       )}
@@ -273,7 +262,7 @@ function ProductCard({ product: p, onModal, onNav }) {
   );
 }
 
-const inputStyle = {
+const input = {
   width: "100%",
   marginTop: "8px",
   padding: "10px",
