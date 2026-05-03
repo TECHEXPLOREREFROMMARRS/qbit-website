@@ -34,7 +34,7 @@ export const FOUNDERS = [
     name: "Pradeep Kumar",
     role: "Founder & CEO",
     desc: "Leads vision and system architecture with focus on defence-grade communication and computing systems.",
-    image: "/founders/pk.jpg"      // already lowercase ✅
+    image: "/founders/pk.JPG"      // already lowercase ✅
   },
   {
     name: "Pradeep Aggarwal",

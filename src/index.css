@@ -251,6 +251,15 @@ button:hover {
   .nav-desktop {
     display: none !important;
   }
+  @media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+
+  .nav-mobile-btn {
+    display: flex !important;  /* ✅ changed from block to flex */
+  }
+}
 
   .nav-mobile-btn {
     display: block !important;
