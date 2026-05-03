@@ -55,9 +55,12 @@ export default function ContactPage() {
           <div>
             <h2 style={{ fontFamily: FD }}>Reach Us</h2>
 
-            <p style={{ fontFamily: FB }}>📍 Noida, India</p>
-            <p style={{ fontFamily: FB }}>✉ defence@qbitlabs.in</p>
+            <p style={{ fontFamily: FB }}>Office Address: 104, FF, IRIS Tech Park, Tower -A, Sector -48, Sohna Road, Gurgaon-122018
+Hyderabad Office: 704, 7th floor Asian Suncity Commercial, Block-B, Gachibowli, Kondapur, Hyderabad, Telangana, India, 500084
+Registered Address: D-614, Rohini Heights, Sector 29, Rohini, New Delhi-110085</p>
+            <p style={{ fontFamily: FB }}>✉ sales@qbitlabs.co.in</p>
             <p style={{ fontFamily: FB }}>🕒 Mon–Fri, 9AM–6PM</p>
+             <p style={{ fontFamily: FB }}>Contact +91 124 404873</p>
           </div>
 
           {/* FORM */}

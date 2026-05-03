@@ -27,16 +27,45 @@ export default function Navbar({ activePage, onNav }) {
         }}
       >
         {/* LOGO */}
-        <div
-          style={{
-            fontFamily: FD,
-            fontSize: "1.2rem",
-            cursor: "pointer"
-          }}
-          onClick={() => onNav("Home")}
-        >
-          QBIT <span style={{ color: C.cyan }}>LABS</span>
-        </div>
+       <div
+  onClick={() => onNav("Home")}
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    cursor: "pointer"
+  }}
+>
+  <img
+    src="/qbits-logo.png"
+    alt="Qbit Labs"
+    style={{
+      height: "60px",
+      width: "auto",
+      objectFit: "contain",
+      filter: "drop-shadow(0 0 6px rgba(0,200,255,0.5))",
+      transition: "0.3s"
+    }}
+    onMouseOver={(e) => {
+      e.target.style.transform = "scale(1.08)";
+      e.target.style.filter = "drop-shadow(0 0 10px rgba(0,200,255,0.8))";
+    }}
+    onMouseOut={(e) => {
+      e.target.style.transform = "scale(1)";
+      e.target.style.filter = "drop-shadow(0 0 6px rgba(0,200,255,0.5))";
+    }}
+  />
+
+  {/* OPTIONAL TEXT BRAND */}
+  <span style={{
+    fontFamily: "Orbitron, sans-serif",
+    fontSize: "1rem",
+    letterSpacing: "0.08em",
+    color: "#fff"
+  }}>
+    
+  </span>
+</div>
 
         {/* DESKTOP MENU */}
         <div

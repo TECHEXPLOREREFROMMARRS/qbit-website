@@ -6,72 +6,113 @@ export default function HomePage({ onNav }) {
     <div style={{ paddingTop: "80px" }}>
 
       {/* HERO */}
-      <section style={{
-        padding: "clamp(3rem, 6vw, 6rem) 1rem",
-        background: C.bg,
-        minHeight: "70vh",
-        display: "flex",
-        alignItems: "center"
-      }}>
-        <div style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          width: "100%"
-        }}>
-          <h1 style={{
-            fontFamily: FD,
-            fontSize: "clamp(2rem, 6vw, 3.5rem)",
-            lineHeight: 1.2,
-            marginBottom: "1rem"
-          }}>
-            {HERO_CONTENT.heading}
-          </h1>
+     <section style={{
+  padding: "clamp(4rem, 8vw, 8rem) 1rem",
+  background: "radial-gradient(circle at 20% 30%, rgba(0,200,255,0.15), transparent 40%), #04070f",
+  minHeight: "80vh",
+  display: "flex",
+  alignItems: "center"
+}}>
+  <div style={{
+    maxWidth: 1200,
+    margin: "0 auto",
+    width: "100%"
+  }}>
 
-          <p style={{
-            fontFamily: FB,
-            color: C.textMid,
-            maxWidth: 500,
-            marginBottom: "1rem",
-            fontSize: "clamp(0.9rem, 2.5vw, 1rem)"
-          }}>
-            {HERO_CONTENT.subheading}
-          </p>
+    <h1 style={{
+      fontFamily: FD,
+      fontSize: "clamp(2.2rem, 6vw, 3.8rem)",
+      lineHeight: 1.1,
+      marginBottom: "1rem"
+    }}>
+      {HERO_CONTENT.heading}
+      <br />
+      <span style={{ color: "#00C8FF" }}>
+        Advanced Defence Systems
+      </span>
+    </h1>
 
-          <p style={{
-            fontFamily: FB,
-            color: C.textMid,
-            marginBottom: "2rem",
-            fontSize: "clamp(0.9rem, 2.5vw, 1rem)"
-          }}>
-            {HERO_CONTENT.tagline}
-          </p>
+    <p style={{
+      fontFamily: FB,
+      color: C.textMid,
+      maxWidth: 520,
+      marginBottom: "1rem"
+    }}>
+      {HERO_CONTENT.subheading}
+    </p>
 
-          <button
-            onClick={() => onNav("Contact")}
-            style={{
-              background: C.cyan,
-              border: "none",
-              padding: "12px 20px",
-              fontWeight: "bold",
-              borderRadius: "6px",
-              cursor: "pointer"
-            }}
-          >
-            Contact Us →
-          </button>
-        </div>
-      </section>
+    <p style={{
+      fontFamily: FB,
+      color: "#7f8a9a",
+      marginBottom: "2rem"
+    }}>
+      {HERO_CONTENT.tagline}
+    </p>
 
+    {/* BUTTON GROUP */}
+    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+      <button
+        onClick={() => onNav("Products")}
+        style={{
+          background: "#00C8FF",
+          border: "none",
+          padding: "12px 22px",
+          fontWeight: "bold",
+          borderRadius: "6px",
+          cursor: "pointer"
+        }}
+      >
+        Explore Products →
+      </button>
+
+      <button
+        onClick={() => onNav("Contact")}
+        style={{
+          background: "transparent",
+          border: "1px solid rgba(255,255,255,0.2)",
+          color: "#fff",
+          padding: "12px 22px",
+          borderRadius: "6px",
+          cursor: "pointer"
+        }}
+      >
+        Contact Team
+      </button>
+    </div>
+
+  </div>
+</section>
       {/* PARTNERS */}
-      <section className="partners-section">
-        <div className="partners-track">
-          {[...PARTNERS, ...PARTNERS].map((p, i) => (
-            <div key={i} className="partner-item">
-              <img src={p.logo} alt={p.name} />
-            </div>
-          ))}
-        </div>
-      </section>
+     <section style={{
+  padding: "2rem 0",
+  background: "#050810",
+  borderTop: "1px solid rgba(255,255,255,0.05)",
+  borderBottom: "1px solid rgba(255,255,255,0.05)"
+}}>
+  <div className="partners-track">
+    {[...PARTNERS, ...PARTNERS].map((p, i) => (
+      <div key={i} className="partner-item">
+        <img
+          src={p.logo}
+          alt={p.name}
+          style={{
+            opacity: 0.7,
+            filter: "grayscale(100%)",
+            transition: "0.3s"
+          }}
+          onMouseOver={(e) => {
+            e.target.style.opacity = "1";
+            e.target.style.filter = "grayscale(0%)";
+          }}
+          onMouseOut={(e) => {
+            e.target.style.opacity = "0.7";
+            e.target.style.filter = "grayscale(100%)";
+          }}
+        />
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* VALUE PROPS */}
       <section style={{
@@ -87,7 +128,7 @@ export default function HomePage({ onNav }) {
             fontSize: "clamp(1.5rem, 4vw, 2rem)",
             marginBottom: "2rem"
           }}>
-            Why <span style={accent}>Qbit Labs</span>
+            Why <span style={accent}></span>
           </h2>
 
           <div style={{
@@ -96,31 +137,33 @@ export default function HomePage({ onNav }) {
             gap: "1rem"
           }}>
             {VALUE_PROPS.map((item) => (
-              <div
-                key={item.title}
-                className="card-hover"
-                style={{
-                  background: C.bgCard,
-                  padding: "1.2rem",
-                  border: `1px solid ${C.border}`,
-                  borderRadius: "8px"
-                }}
-              >
-                <h3 style={{
-                  fontFamily: FD,
-                  fontSize: "1.1rem"
-                }}>
-                  {item.title}
-                </h3>
+             <div
+  key={item.title}
+  className="card-hover"
+  style={{
+    background: "linear-gradient(145deg, #0b1220, #050810)",
+    padding: "1.4rem",
+    border: "1px solid rgba(0,200,255,0.15)",
+    borderRadius: "10px",
+    transition: "all 0.3s ease"
+  }}
+>
+  <h3 style={{
+    fontFamily: FD,
+    fontSize: "1.2rem"
+  }}>
+    {item.title}
+  </h3>
 
-                <p style={{
-                  fontFamily: FB,
-                  color: C.textMid,
-                  fontSize: "0.9rem"
-                }}>
-                  {item.desc}
-                </p>
-              </div>
+  <p style={{
+    fontFamily: FB,
+    color: "#9aa4b2",
+    fontSize: "0.9rem",
+    lineHeight: 1.5
+  }}>
+    {item.desc}
+  </p>
+</div>
             ))}
           </div>
         </div>

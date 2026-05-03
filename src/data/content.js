@@ -1,13 +1,25 @@
 export const ABOUT_CONTENT = {
   title: "Securing Strategic Connectivity",
+
   description:
-    "Qbit Labs is an innovative R&D company offering complex products and solutions using emerging technologies such as Quantum Computing, AI/ML, and advanced communication protocols.",
+    "Qbit Labs is an R&D-driven engineering company focused on building advanced communication and computing systems for defence and industrial applications.",
 
   mission:
-    "Our mission is to contribute to global technological advancement by leveraging quantum technologies, AI/ML, and modern computing systems while supporting initiatives like Make in India and Startup India.",
+    "Our mission is to build reliable, high-performance communication and computing systems for critical environments. We focus on solving real-world challenges in defence, networking, and industrial systems where performance, security, and determinism are non-negotiable.",
 
   vision:
-    "To solve complex computing problems using Quantum and AI technologies and achieve technological self-reliance.",
+    "We aim to enable technological self-reliance by developing indigenous solutions in advanced computing, networking, and secure communication systems. Our vision is to bridge the gap between cutting-edge research and deployable real-world systems.",
+
+  team:
+    "Qbit Labs is built by engineers and researchers focused on solving complex system-level challenges. Our team works across domains including FPGA design, networking systems, AI/ML, and embedded technologies. We believe in deep engineering, practical innovation, and long-term system reliability.",
+
+  work: [
+    "High-speed networking systems",
+    "Time-sensitive networking (TSN) solutions",
+    "SmartNIC and FPGA-based acceleration systems",
+    "Satellite communication systems",
+    "Quantum-safe and AI-enabled computing solutions"
+  ],
 
   highlights: [
     "Quantum Technologies",
@@ -17,7 +29,33 @@ export const ABOUT_CONTENT = {
     "Defence & Aerospace"
   ]
 };
+export const FOUNDERS = [
+  {
+    name: "Pradeep Kumar",
+    role: "Founder & CEO",
+    desc: "Leads vision and system architecture with focus on defence-grade communication and computing systems.",
+    image: "/founders/pk.jpg"
+  },
+  {
+    name: "Pradeep Aggarwal",
+    role: "Co-Founder & CTO",
+    desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
+    image: "/founders/pa.jpg"
+  },
+    {
+    name: "Vivek Mani Tiwari",
+    role: "VP",
+    desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
+    image: "/founders/vm.jpg"
+  },
+      {
+    name: "Kapil Gupta",
+    role: "R&D director",
+    desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
+    image: "/founders/kp.jpg"
+  }
 
+];
 export const HERO_CONTENT = {
   heading: "Emerging Technologies for Complex Problems",
   subheading:
