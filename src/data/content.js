@@ -29,36 +29,38 @@ export const ABOUT_CONTENT = {
     "Defence & Aerospace"
   ]
 };
+
 export const FOUNDERS = [
   {
     name: "Pradeep Kumar",
     role: "Founder & CEO",
     desc: "Leads vision and system architecture with focus on defence-grade communication and computing systems.",
-    image: "/founders/pk.JPG"      // already lowercase ✅
+    image: "/founders/pk.JPG"
   },
   {
     name: "Pradeep Aggarwal",
     role: "Co-Founder & CTO",
     desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
-    image: "/founders/pa.JPG"      // ✅ uppercase
+    image: "/founders/pa.JPG"
   },
   {
     name: "Vivek Mani Tiwari",
     role: "VP",
     desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
-    image: "/founders/vm.JPG"      // ✅ uppercase
+    image: "/founders/vm.JPG"
   },
   {
     name: "Kapil Gupta",
     role: "R&D director",
     desc: "Drives engineering, FPGA systems, and high-performance networking solutions.",
-    image: "/founders/kp.JPG"      // ✅ uppercase
+    image: "/founders/kp.JPG"
   }
 ];
+
 export const HERO_CONTENT = {
   heading: "Engineering the Future of Secure Systems",
   subheading:
-     "Advanced Networking · Defence Systems · AI/ML · Quantum Technologies",
+    "Advanced Networking · Defence Systems · AI/ML · Quantum Technologies",
   tagline:
     "Building high-performance, mission-critical systems for real-world deployment."
 };
@@ -78,11 +80,9 @@ export const VALUE_PROPS = [
   }
 ];
 
-
 export const HERO_ASSETS = {
-  visual: "/hero/defence-tech.jpg" // or wherever your image actually is
+  visual: "/hero/defence-tech.jpg"
 };
-
 
 export const SOLUTIONS_DATA = [
   {
@@ -127,237 +127,344 @@ export const SOLUTIONS_DATA = [
   }
 ];
 
-
 export const PARTNERS = [
-//   { name: "DRDO", logo: "/partners/drdo.png" },
-//   { name: "ISRO", logo: "/partners/isro.png" },
-//   { name: "HAL", logo: "/partners/hal.png" },
-  { name: "BHEL", logo: "/partners/BHEL.png" },
-  { name: "Intel", logo: "/partners/intel.png" },
-  { name: "AMD", logo: "/partners/amd.png" },
-//   { name: "ARM", logo: "/partners/arm.png" },
-  { name: "IDRA", logo: "/partners/idra.png" },
-  { name: "IAF", logo: "/partners/Indian_Air_Force.png" },
-  { name: "INF", logo: "/partners/Indian_Navy.png" },
-  { name: "ARMY", logo: "/partners/Indian-army.png" },
+  { name: "BHEL",    logo: "/partners/BHEL.png" },
+  { name: "Intel",   logo: "/partners/intel.png" },
+  { name: "AMD",     logo: "/partners/amd.png" },
+  { name: "IDRA",    logo: "/partners/idra.png" },
+  { name: "IAF",     logo: "/partners/Indian_Air_Force.png" },
+  { name: "INF",     logo: "/partners/Indian_Navy.png" },
+  { name: "ARMY",    logo: "/partners/Indian-army.png" },
   { name: "LATTICE", logo: "/partners/lattice_logo.png" },
-  { name: "SAC", logo: "/partners/sac.png" }
+  { name: "SAC",     logo: "/partners/sac.png" }
 ];
+
+// ─────────────────────────────────────────────
+//  PRODUCT CATEGORIES
+//  id values here MUST match PRODUCT_DETAILS keys
+// ─────────────────────────────────────────────
 export const PRODUCT_CATEGORIES = [
 
   {
     name: "IP Core",
     products: [
-      {
-        id: "ip1",
-        name: "TCP IP Offload Engine",
-        brochure: "/brochures/ip-core/1G10G TCP IP Offload Engine (1).pdf"
-      },
-      {
-        id: "ip2",
-        name: "LDPC Codec",
-        brochure: "/brochures/ip-core/LDPC CODEC.pdf"
-      },
-      {
-        id: "ip3",
-        name: "Redundant Ethernet",
-        brochure: "/brochures/ip-core/Redundant Ethernet.pdf"
-      }
+      { id: "ip1", name: "TCP IP Offload Engine", brochure: "/brochures/ip-core/1G10G TCP IP Offload Engine (1).pdf" },
+      { id: "ip2", name: "LDPC Codec",            brochure: "/brochures/ip-core/LDPC CODEC.pdf" },
+      { id: "ip3", name: "Redundant Ethernet",    brochure: "/brochures/ip-core/Redundant Ethernet.pdf" }
     ]
   },
 
   {
-  name: "TSN",
-  products: [
-    {
-      id: "tsn1",
-      name: "Determinism in TSN White Paper",
-      brochure: "/brochures/tsn/Determinism in TSN White Paper.pdf"
-    },
-    {
-      id: "tsn2",
-      name: "DIN Mounted Industrial Switch",
-      brochure: "/brochures/tsn/DIN Mounted Industrial Switch.pdf"
-    },
-    {
-      id: "tsn3",
-      name: "TSN ATE Tester Proposal",
-      brochure: "/brochures/tsn/QBit_TSN_ATE_Tester_Proposal_for_NI_compliance updated.pdf"
-    },
-    {
-      id: "tsn4",
-      name: "TSN Conformance Tester Proposal",
-      brochure: "/brochures/tsn/QBitTSNConformance Tester Proposal for NI compliance.pdf"
-    },
-    {
-      id: "tsn5",
-      name: "QBL-NET-X1000 Compact TSN Network",
-      brochure: "/brochures/tsn/QBL-NET-X1000 Compact TSN Network Tester.pdf"
-    },
-    {
-      id: "tsn6",
-      name: "TSN End Point PCIe NIC",
-      brochure: "/brochures/tsn/TSN END POINT PCIe NIC.pdf"
-    },
-    {
-      id: "tsn7",
-      name: "TSN End Point System",
-      brochure: "/brochures/tsn/TSN End Point System.pdf"
-    },
-    {
-      id: "tsn8",
-      name: "TSN Ethernet Switch QSXG24-Mil",
-      brochure: "/brochures/tsn/TSN ETHERNET SWITCH (QSXG24)-Mil.pdf"
-    },
-    {
-      id: "tsn9",
-      name: "TSN Ethernet Switch QSXG4-I",
-      brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG4-I.pdf"
-    },
-    {
-      id: "tsn10",
-      name: "TSN Ethernet Switch QSXG12",
-      brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG12.pdf"
-    },
-    {
-      id: "tsn11",
-      name: "TSN Ethernet Switch QSXG24",
-      brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG24.pdf"
-    },
-    {
-      id: "tsn12",
-      name: "TSN IP",
-      brochure: "/brochures/tsn/TSN IP.pdf"
-    }
-  ]
-},
+    name: "TSN",
+    products: [
+      { id: "tsn1",       name: "Determinism in TSN White Paper",    brochure: "/brochures/tsn/Determinism in TSN White Paper.pdf" },
+      { id: "din-switch", name: "DIN Mounted Industrial Switch",      brochure: "/brochures/tsn/DIN Mounted Industrial Switch.pdf" },
+      { id: "tsn3",       name: "TSN ATE Tester Proposal",           brochure: "/brochures/tsn/QBit_TSN_ATE_Tester_Proposal_for_NI_compliance updated.pdf" },
+      { id: "tsn4",       name: "TSN Conformance Tester Proposal",   brochure: "/brochures/tsn/QBitTSNConformance Tester Proposal for NI compliance.pdf" },
+      { id: "qbl-net",    name: "QBL-NET-X1000 Compact TSN Network", brochure: "/brochures/tsn/QBL-NET-X1000 Compact TSN Network Tester.pdf" },
+      { id: "tsn-ep-nic", name: "TSN End Point PCIe NIC",            brochure: "/brochures/tsn/TSN END POINT PCIe NIC.pdf" },
+      { id: "tsn7",       name: "TSN End Point System",              brochure: "/brochures/tsn/TSN End Point System.pdf" },
+      { id: "qsxg24",     name: "TSN Ethernet Switch QSXG24-Mil",    brochure: "/brochures/tsn/TSN ETHERNET SWITCH (QSXG24)-Mil.pdf" },
+      { id: "qsxg4",      name: "TSN Ethernet Switch QSXG4-I",       brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG4-I.pdf" },
+      { id: "qsxg12",     name: "TSN Ethernet Switch QSXG12",        brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG12.pdf" },
+      { id: "qsxg20-mil", name: "TSN Ethernet Switch QSXG20-MIL",    brochure: "/brochures/tsn/TSN ETHERNET SWITCH QSXG20-MIL.pdf" },
+      { id: "tsn12",      name: "TSN IP",                            brochure: "/brochures/tsn/TSN IP.pdf" }
+    ]
+  },
+
   {
     name: "SmartNic",
-    folder: "smartnic",
     products: [
-       {
-      id: "nic1",
-      name: "QBIT PQC Accelerator Endpoint (QPAE)",
-      brochure: "/brochures/smartnic/QBIT PQC Accelerator Endpoint (QPAE).pdf"
-    },
-    {
-      id: "nic2",
-      name: "Qbit ULL SmartNic",
-      brochure: "/brochures/smartnic/Qbit ULL SmartNic.pdf"
-    }
+      { id: "qpae",     name: "QBIT PQC Accelerator Endpoint (QPAE)", brochure: "/brochures/smartnic/QBIT PQC Accelerator Endpoint (QPAE).pdf" },
+      { id: "smartnic", name: "Qbit ULL SmartNic",                    brochure: "/brochures/smartnic/Qbit ULL SmartNic.pdf" }
     ]
   },
-   {
+
+  {
     name: "Satcom",
-    folder: "satcom",
     products: [
-     {
-      id: "sat1",
-      name: "High Data Rate Receiver with Inbuilt Modem",
-      brochure: "/brochures/satcom/High Data Rate Receiver with Inbuilt Modulator.pdf"
-    },
-    {
-      id: "sat2",
-      name: "Low Data Rate Receiver with Inbuilt Modem",
-      brochure: "/brochures/satcom/Low Data Rate Receiver with Inbuilt Modulator.pdf"
-    },
-    {
-      id: "sat3",
-      name: "Qbit Advanced Satellite Modem (QASM)",
-      brochure: "/brochures/satcom/Qbit Advanced Satellite Modem (QASM-01).pdf"
-    },
-    {
-      id: "sat4",
-      name: "Qbit Integrated Telemetry Receiver (QITR)",
-      brochure: "/brochures/satcom/Qbit Integrated Telemetry Receiver (QITR01).pdf"
-    }
+      { id: "hdr",       name: "High Data Rate Receiver with Inbuilt Modem", brochure: "/brochures/satcom/High Data Rate Receiver with Inbuilt Modulator.pdf" },
+      { id: "ldr",       name: "Low Data Rate Receiver with Inbuilt Modem",  brochure: "/brochures/satcom/Low Data Rate Receiver with Inbuilt Modulator.pdf" },
+      { id: "sat-modem", name: "Qbit Advanced Satellite Modem (QASM)",       brochure: "/brochures/satcom/Qbit Advanced Satellite Modem (QASM-01).pdf" },
+      { id: "telemetry", name: "Qbit Integrated Telemetry Receiver (QITR)",  brochure: "/brochures/satcom/Qbit Integrated Telemetry Receiver (QITR01).pdf" }
     ]
   },
-    {
+
+  {
     name: "Video Processing",
-    folder: "videoProcessing",
     products: [
-      {
-        id: "vid1",
-        name: "Dual Video Recorder",
-        brochure: "/brochures/videoProcessing/Dual Video Recorder (DVR).pdf"
-      }
+      { id: "dvr", name: "Dual Video Recorder", brochure: "/brochures/videoProcessing/Dual Video Recorder (DVR).pdf" }
     ]
   },
+
   {
     name: "WR",
-    folder: "wr",
     products: [
-      {
-        id: "wr1",
-        name: "White Rabbit",
-        brochure: "/brochures/wr/White Rabbit Switch (WRSv4).pdf"
-      }
+      { id: "wr-switch", name: "White Rabbit Switch", brochure: "/brochures/wr/White Rabbit Switch (WRSv4).pdf" }
     ]
   }
-  
+
 ];
 
+// ─────────────────────────────────────────────
+//  PRODUCT DETAILS
+//  Keys here MUST match id values in PRODUCT_CATEGORIES
+// ─────────────────────────────────────────────
 export const PRODUCT_DETAILS = {
-  nic1: {
-    image: "/products/placeholder.jpg",
-    desc: "Post-quantum cryptography accelerator for secure systems.",
+
+  "din-switch": {
+    image: "/products/DIN Mounted Industrial Switch.png",
+    desc: "Rugged DIN-rail mounted industrial Ethernet switch for harsh environment deployments.",
     features: [
-      "PQC acceleration",
-      "Low latency encryption",
-      "Secure pipeline"
+      "DIN-rail form factor",
+      "Wide temperature range operation",
+      "Industrial-grade reliability",
+      "Plug-and-play deployment"
     ],
     specs: [
-      ["Latency", "Ultra Low"],
-      ["Throughput", "High"],
+      ["Form Factor", "DIN Rail"],
+      ["Protocol", "Ethernet"],
+      ["Use Case", "Industrial Automation"],
+      ["Grade", "Industrial"]
+    ]
+  },
+
+  "dvr": {
+    image: "/products/DVR.png",
+    desc: "High-fidelity digital video recorder engineered for defence and surveillance applications.",
+    features: [
+      "High-resolution recording",
+      "Secure data storage",
+      "Multi-channel support",
+      "Rugged enclosure"
+    ],
+    specs: [
+      ["Channels", "Multi-channel"],
+      ["Storage", "Secure"],
+      ["Use Case", "Surveillance / Defence"],
+      ["Grade", "Military"]
+    ]
+  },
+
+  "hdr": {
+    image: "/products/HDR with Inbuilt Modulator.png",
+    desc: "High data rate receiver with inbuilt modulator for satellite and RF communication links.",
+    features: [
+      "Inbuilt modulator",
+      "High data rate support",
+      "Wide frequency range",
+      "Compact form factor"
+    ],
+    specs: [
+      ["Type", "HDR Receiver"],
+      ["Modulator", "Inbuilt"],
+      ["Use Case", "Satellite / RF"],
+      ["Interface", "RF"]
+    ]
+  },
+
+  "ldr": {
+    image: "/products/LDR with Inbuilt Modulator.png",
+    desc: "Low data rate receiver with inbuilt modulator for reliable long-range communication.",
+    features: [
+      "Inbuilt modulator",
+      "Long-range reliability",
+      "Low power consumption",
+      "Defence-grade build"
+    ],
+    specs: [
+      ["Type", "LDR Receiver"],
+      ["Modulator", "Inbuilt"],
+      ["Use Case", "Long-range Comms"],
+      ["Power", "Low"]
+    ]
+  },
+
+  "qpae": {
+    image: "/products/PQC Accelerator Endpoint (QPAE).png",
+    desc: "Post-quantum cryptography accelerator endpoint for next-generation secure communications.",
+    features: [
+      "Post-quantum encryption",
+      "Hardware-accelerated PQC",
+      "PCIe interface",
+      "Defence & enterprise ready"
+    ],
+    specs: [
+      ["Encryption", "Post-Quantum (PQC)"],
       ["Interface", "PCIe"],
-      ["Use Case", "Defence"]
+      ["Latency", "Ultra Low"],
+      ["Use Case", "Secure Comms / Defence"]
     ]
   },
 
-  nic2: {
-    image: "/products/placeholder.jpg",
-    desc: "Ultra-low latency SmartNIC for high-performance networking.",
+  "smartnic": {
+    image: "/products/Qbit ULL SmartNic.png",
+    desc: "Ultra-low latency SmartNIC with FPGA acceleration for high-performance AI and defence workloads.",
     features: [
-      "FPGA acceleration",
-      "100Gbps throughput",
-      "Ultra-low latency"
+      "FPGA-accelerated processing",
+      "100 Gbps throughput",
+      "Sub-microsecond latency",
+      "PCIe Gen4 interface"
     ],
     specs: [
-      ["Latency", "<1µs"],
-      ["Throughput", "100Gbps"],
+      ["Latency", "<1 µs"],
+      ["Throughput", "100 Gbps"],
       ["Interface", "PCIe Gen4"],
-      ["Application", "AI / Defence"]
+      ["Use Case", "AI / Defence"]
     ]
   },
 
-  sat1: {
-    image: "/products/placeholder.jpg",
-    desc: "High-speed satellite communication receiver.",
+  "qbl-net": {
+    image: "/products/QBL-NET-X1000 COMPACT TSN NETWORK TESTER.png",
+    desc: "Compact TSN network switch delivering deterministic Ethernet for time-sensitive applications.",
     features: [
-      "High bandwidth",
-      "Reliable decoding",
-      "Secure communication"
+      "IEEE 802.1 TSN compliant",
+      "Deterministic packet delivery",
+      "Compact ruggedised form factor",
+      "Industrial & defence grade"
     ],
     specs: [
-      ["Frequency", "Wideband"],
-      ["Latency", "Low"],
-      ["Use Case", "Satellite Systems"]
+      ["Standard", "IEEE 802.1 TSN"],
+      ["Form Factor", "Compact"],
+      ["Latency", "Deterministic"],
+      ["Use Case", "Industrial / Defence"]
     ]
   },
 
-  wr1: {
-    image: "/products/placeholder.jpg",
-    desc: "Precision timing system using White Rabbit protocol.",
+  "sat-modem": {
+    image: "/products/Satellite Modem (QASM-01).png",
+    desc: "High-speed satellite modem for secure and reliable broadband communication links.",
     features: [
-      "Sub-nanosecond sync",
+      "Wideband operation",
+      "Secure data transmission",
+      "Low latency decoding",
+      "Rugged design"
+    ],
+    specs: [
+      ["Model", "QASM-01"],
+      ["Frequency", "Wideband"],
+      ["Use Case", "Satellite Systems"],
+      ["Grade", "Defence"]
+    ]
+  },
+
+  "telemetry": {
+    image: "/products/Telemetry Receiver (QITR01).png",
+    desc: "Precision telemetry receiver for real-time data acquisition in defence and aerospace systems.",
+    features: [
+      "Real-time data acquisition",
+      "High sensitivity receiver",
+      "Wide frequency coverage",
+      "MIL-grade enclosure"
+    ],
+    specs: [
+      ["Model", "QITR01"],
+      ["Type", "Telemetry Receiver"],
+      ["Use Case", "Aerospace / Defence"],
+      ["Grade", "Military"]
+    ]
+  },
+
+  "tsn-ep-nic": {
+    image: "/products/TSN END POINT PCIe NIC.png",
+    desc: "TSN endpoint PCIe NIC for high-precision time-aware networking in industrial environments.",
+    features: [
+      "TSN endpoint support",
+      "PCIe interface",
+      "Deterministic Ethernet",
+      "Industrial grade"
+    ],
+    specs: [
+      ["Interface", "PCIe"],
+      ["Standard", "IEEE 802.1 TSN"],
+      ["Use Case", "Industrial Networking"],
+      ["Grade", "Industrial"]
+    ]
+  },
+
+  "qsxg4": {
+    image: "/products/TSN ETHERNET SWITCH QSXG4-I.png",
+    desc: "4-port TSN Ethernet switch with industrial-grade reliability for time-sensitive networks.",
+    features: [
+      "4-port TSN switch",
+      "IEEE 802.1 TSN compliant",
+      "Industrial temperature range",
+      "Deterministic forwarding"
+    ],
+    specs: [
+      ["Model", "QSXG4-I"],
+      ["Ports", "4"],
+      ["Standard", "IEEE 802.1 TSN"],
+      ["Grade", "Industrial"]
+    ]
+  },
+
+  "qsxg12": {
+    image: "/products/TSN ETHERNET SWITCH QSXG12.png",
+    desc: "12-port TSN Ethernet switch for scalable deterministic networking in defence systems.",
+    features: [
+      "12-port configuration",
+      "TSN compliant",
+      "Scalable architecture",
+      "Low latency switching"
+    ],
+    specs: [
+      ["Model", "QSXG12"],
+      ["Ports", "12"],
+      ["Standard", "IEEE 802.1 TSN"],
+      ["Use Case", "Defence / Industrial"]
+    ]
+  },
+
+  "qsxg20-mil": {
+    image: "/products/TSN ETHERNET SWITCH QSXG20-MIL.png",
+    desc: "20-port MIL-grade TSN Ethernet switch built for mission-critical defence deployments.",
+    features: [
+      "20-port MIL-grade switch",
+      "TSN compliant",
+      "MIL-STD-810 rated",
+      "Mission-critical reliability"
+    ],
+    specs: [
+      ["Model", "QSXG20-MIL"],
+      ["Ports", "20"],
+      ["Standard", "IEEE 802.1 TSN"],
+      ["Grade", "MIL-STD-810"]
+    ]
+  },
+
+  "qsxg24": {
+    image: "/products/TSN ETHERNET SWITCH QSXG24.png",
+    desc: "24-port TSN Ethernet switch for large-scale time-sensitive network deployments.",
+    features: [
+      "24-port high-density switch",
+      "TSN compliant",
+      "High throughput",
+      "Rack-mountable"
+    ],
+    specs: [
+      ["Model", "QSXG24"],
+      ["Ports", "24"],
+      ["Standard", "IEEE 802.1 TSN"],
+      ["Use Case", "Enterprise / Defence"]
+    ]
+  },
+
+  "wr-switch": {
+    image: "/products/WR Switch (WRSv4).png",
+    desc: "White Rabbit switch delivering sub-nanosecond synchronisation for precision timing networks.",
+    features: [
+      "Sub-nanosecond synchronisation",
+      "White Rabbit protocol",
       "Deterministic timing",
       "Industrial grade"
     ],
     specs: [
-      ["Accuracy", "<1ns"],
+      ["Model", "WRSv4"],
+      ["Accuracy", "<1 ns"],
       ["Protocol", "White Rabbit"],
-      ["Use Case", "Timing Systems"]
+      ["Use Case", "Precision Timing"]
     ]
   }
+
 };

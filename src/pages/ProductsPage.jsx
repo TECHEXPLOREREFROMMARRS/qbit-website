@@ -2,17 +2,15 @@ import { useState, useEffect } from "react";
 import { PRODUCT_CATEGORIES } from "../data/content";
 
 export default function ProductsPage({ onNav }) {
-  const [active, setActive] = useState(
-    PRODUCT_CATEGORIES?.[0]?.name || ""
-  );
+const [active, setActive] = useState(() => {
+  // Restore last visited category on mount
+  return localStorage.getItem("selectedCategory") || PRODUCT_CATEGORIES?.[0]?.name || "";
+});
 
   // ✅ Sync with navbar selection
-  useEffect(() => {
-    const saved = localStorage.getItem("selectedCategory");
-    if (saved) {
-      setActive(saved);
-    }
-  }, []);
+useEffect(() => {
+  localStorage.setItem("selectedCategory", active);
+}, [active]);
 
   // ✅ Safe selection
   const selectedCategory =
@@ -308,4 +306,4 @@ const submitBtn = {
   padding: "10px",
   width: "100%",
   cursor: "pointer"
-};
+};  

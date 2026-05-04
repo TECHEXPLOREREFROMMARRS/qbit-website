@@ -11,56 +11,63 @@ import SolutionsPage from "./pages/SolutionsPage";
 import TechnologyPage from "./pages/TechnologyPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import ContactPage from "./pages/ContactPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 import injectFonts from "./utils/injectFonts";
-import ProductDetailPage from "./pages/ProductDetailPage";
 
 export default function App() {
   const [page, setPage] = useState("Home");
-  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  useEffect(() => {
-  injectFonts();
-  if (page === "ProductDetail") {
+  const [selectedProduct, setSelectedProduct] = useState(() => {
     try {
       const saved = localStorage.getItem("selectedProduct");
-      if (saved) {
-        setSelectedProduct(JSON.parse(saved));
-      }
+      return saved ? JSON.parse(saved) : null;
     } catch {
-      setSelectedProduct(null);
+      return null;
     }
-  }
-}, [page]);
+  });
+
+  useEffect(() => {
+    injectFonts();
+  }, []);
+
+  // Keep selectedProduct fresh whenever we navigate to ProductDetail
+  const handleNav = (targetPage) => {
+    if (targetPage === "ProductDetail") {
+      try {
+        const saved = localStorage.getItem("selectedProduct");
+        if (saved) setSelectedProduct(JSON.parse(saved));
+      } catch {
+        setSelectedProduct(null);
+      }
+    }
+    setPage(targetPage);
+  };
+
   const renderPage = () => {
     switch (page) {
       case "ProductDetail":
-  return (
-    <ProductDetailPage
-      product={selectedProduct}
-      onNav={setPage}
-    />
-  );
+        return <ProductDetailPage product={selectedProduct} onNav={handleNav} />;
       case "About":
-        return <AboutPage onNav={setPage} />;
+        return <AboutPage onNav={handleNav} />;
       case "Products":
-        return <ProductsPage onNav={setPage} />;
+        return <ProductsPage onNav={handleNav} />;
       case "Solutions":
-        return <SolutionsPage onNav={setPage} />;
+        return <SolutionsPage onNav={handleNav} />;
       case "Technology":
-        return <TechnologyPage onNav={setPage} />;
+        return <TechnologyPage onNav={handleNav} />;
       case "Resources":
-        return <ResourcesPage onNav={setPage} />;
+        return <ResourcesPage onNav={handleNav} />;
       case "Contact":
         return <ContactPage />;
       default:
-        return <HomePage onNav={setPage} />;
+        return <HomePage onNav={handleNav} />;
     }
   };
 
   return (
     <>
-      <Navbar activePage={page} onNav={setPage} />
+      <Navbar activePage={page} onNav={handleNav} />
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -74,7 +81,7 @@ export default function App() {
         </motion.div>
       </AnimatePresence>
 
-      <Footer onNav={setPage} />
+      <Footer onNav={handleNav} />
     </>
   );
 }
