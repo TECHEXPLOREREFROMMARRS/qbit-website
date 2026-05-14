@@ -4,13 +4,8 @@ import { PRODUCT_DETAILS } from "../data/content";
 
 export default function ProductDetailPage({ product, onNav }) {
   const [showForm, setShowForm] = useState(false);
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    phone: ""
-  });
+  const [user, setUser] = useState({ name: "", email: "", phone: "" });
 
-  // ✅ SAFETY CHECK
   if (!product) {
     return (
       <div style={{ paddingTop: "100px", textAlign: "center" }}>
@@ -19,7 +14,6 @@ export default function ProductDetailPage({ product, onNav }) {
     );
   }
 
-  // ✅ GET DETAILS FROM DATA MAP
   const details = PRODUCT_DETAILS[product.id] || {};
 
   return (
@@ -42,13 +36,22 @@ export default function ProductDetailPage({ product, onNav }) {
             <button style={primaryBtn} onClick={() => setShowForm(true)}>
               Download Brochure ↓
             </button>
-
             <button style={secondaryBtn} onClick={() => onNav("Contact")}>
               Contact Team
             </button>
           </div>
         </div>
       </section>
+
+      {/* OVERVIEW */}
+      {details.Overview && (
+        <section style={sectionAlt}>
+          <div style={container}>
+            <h2 style={heading}>Overview</h2>
+            <p style={overviewText}>{details.Overview}</p>
+          </div>
+        </section>
+      )}
 
       {/* IMAGE + FEATURES */}
       <section style={section}>
@@ -61,10 +64,11 @@ export default function ProductDetailPage({ product, onNav }) {
 
           <div>
             <h2 style={heading}>Key Highlights</h2>
-
             <ul style={list}>
               {(details.features || []).map((f) => (
-                <li key={f}>{f}</li>
+                <li key={f} style={listItem}>
+                  <span style={bullet}>→</span> {f}
+                </li>
               ))}
             </ul>
           </div>
@@ -75,7 +79,6 @@ export default function ProductDetailPage({ product, onNav }) {
       <section style={sectionAlt}>
         <div style={container}>
           <h2 style={heading}>Technical Specifications</h2>
-
           <table style={table}>
             <tbody>
               {(details.specs || []).map(([k, v]) => (
@@ -89,15 +92,25 @@ export default function ProductDetailPage({ product, onNav }) {
         </div>
       </section>
 
-      {/* APPLICATIONS */}
+          {/* APPLICATIONS */}
       <section style={section}>
         <div style={container}>
           <h2 style={heading}>Applications</h2>
-
-          <p style={desc}>
-            Used in defence communication systems, satellite networks,
-            industrial automation, and secure high-speed data environments.
-          </p>
+ 
+          {details.applications && details.applications.length > 0 ? (
+            <ul style={appList}>
+              {details.applications.map((app) => (
+                <li key={app} style={appItem}>
+                  <span style={bullet}>→</span> {app}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p style={desc}>
+              Used in defence communication systems, satellite networks,
+              industrial automation, and secure high-speed data environments.
+            </p>
+          )}
         </div>
       </section>
 
@@ -105,36 +118,25 @@ export default function ProductDetailPage({ product, onNav }) {
       {showForm && (
         <div style={modalBg}>
           <div style={modalBox}>
-            <button style={closeBtn} onClick={() => setShowForm(false)}>
-              ✕
-            </button>
-
+            <button style={closeBtn} onClick={() => setShowForm(false)}>✕</button>
             <h3>Download Brochure</h3>
 
             <input
               placeholder="Name"
               value={user.name}
-              onChange={(e) =>
-                setUser({ ...user, name: e.target.value })
-              }
+              onChange={(e) => setUser({ ...user, name: e.target.value })}
               style={input}
             />
-
             <input
               placeholder="Email"
               value={user.email}
-              onChange={(e) =>
-                setUser({ ...user, email: e.target.value })
-              }
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
               style={input}
             />
-
             <input
               placeholder="Phone"
               value={user.phone}
-              onChange={(e) =>
-                setUser({ ...user, phone: e.target.value })
-              }
+              onChange={(e) => setUser({ ...user, phone: e.target.value })}
               style={input}
             />
 
@@ -145,24 +147,19 @@ export default function ProductDetailPage({ product, onNav }) {
                   alert("Fill required fields");
                   return;
                 }
-
                 const payload = {
                   name: user.name,
                   email: user.email,
                   phone: user.phone,
-                  product: product.name
+                  product: product.name,
                 };
-
-                fetch("https://script.google.com/macros/s/AKfycbwnbwiJNwsqje6UMalsX9lJV0QzKawFtBKuH9Pv-xe1ucAFmVdwQsbw1M1ksyWKhPGN/exec", {
-                  method: "POST",
-                  body: JSON.stringify(payload),
-                })
+                fetch(
+                  "https://script.google.com/macros/s/AKfycbwnbwiJNwsqje6UMalsX9lJV0QzKawFtBKuH9Pv-xe1ucAFmVdwQsbw1M1ksyWKhPGN/exec",
+                  { method: "POST", body: JSON.stringify(payload) }
+                )
                   .then(() => {
                     setShowForm(false);
-
-                    if (product.brochure) {
-                      window.open(product.brochure, "_blank");
-                    }
+                    if (product.brochure) window.open(product.brochure, "_blank");
                   })
                   .catch((err) => {
                     console.error("Error:", err);
@@ -185,15 +182,14 @@ const container = { maxWidth: 1100, margin: "0 auto" };
 
 const hero = {
   padding: "3rem 2rem",
-  background:
-    "radial-gradient(circle at 30% 20%, rgba(0,200,255,0.1), transparent)"
+  background: "radial-gradient(circle at 30% 20%, rgba(0,200,255,0.1), transparent)",
 };
 
 const section = { padding: "3rem 2rem" };
 
 const sectionAlt = {
   padding: "3rem 2rem",
-  background: "#050810"
+  background: "#050810",
 };
 
 const grid = {
@@ -201,52 +197,75 @@ const grid = {
   gridTemplateColumns: "1fr 1fr",
   gap: "2rem",
   maxWidth: 1100,
-  margin: "0 auto"
+  margin: "0 auto",
 };
 
 const title = {
   fontFamily: FD,
   fontSize: "2.4rem",
-  marginBottom: "1rem"
+  marginBottom: "1rem",
 };
 
 const heading = {
   fontFamily: FD,
-  marginBottom: "1rem"
+  marginBottom: "1rem",
 };
 
 const desc = {
   color: "#9aa4b2",
-  maxWidth: "600px"
+  maxWidth: "600px",
+};
+
+const overviewText = {
+  color: "#9aa4b2",
+  lineHeight: "1.8",
+  fontSize: "1rem",
+  maxWidth: "860px",
 };
 
 const img = {
   width: "100%",
   borderRadius: "10px",
-  border: "1px solid rgba(0,200,255,0.2)"
+  border: "1px solid rgba(0,200,255,0.2)",
 };
 
 const list = {
+  listStyle: "none",
+  padding: 0,
+  margin: 0,
+};
+
+const listItem = {
+  display: "flex",
+  alignItems: "flex-start",
+  gap: "8px",
   color: "#9aa4b2",
-  paddingLeft: "20px"
+  padding: "6px 0",
+  borderBottom: "1px solid rgba(255,255,255,0.05)",
+};
+
+const bullet = {
+  color: "#00C8FF",
+  flexShrink: 0,
+  marginTop: "1px",
 };
 
 const table = {
   width: "100%",
   borderCollapse: "collapse",
-  marginTop: "1rem"
+  marginTop: "1rem",
 };
 
 const tdKey = {
   padding: "8px",
-  borderBottom: "1px solid rgba(255,255,255,0.1)"
+  borderBottom: "1px solid rgba(255,255,255,0.1)",
 };
 
 const tdVal = {
   padding: "8px",
   textAlign: "right",
   color: "#00C8FF",
-  borderBottom: "1px solid rgba(255,255,255,0.1)"
+  borderBottom: "1px solid rgba(255,255,255,0.1)",
 };
 
 const primaryBtn = {
@@ -255,7 +274,7 @@ const primaryBtn = {
   padding: "10px 18px",
   fontWeight: "600",
   borderRadius: "6px",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
 const secondaryBtn = {
@@ -264,7 +283,7 @@ const secondaryBtn = {
   color: "#fff",
   padding: "10px 18px",
   borderRadius: "6px",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
 const backBtn = {
@@ -273,20 +292,17 @@ const backBtn = {
   border: "1px solid rgba(255,255,255,0.2)",
   padding: "6px 12px",
   color: "#fff",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
 const modalBg = {
   position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
+  top: 0, left: 0, right: 0, bottom: 0,
   background: "rgba(0,0,0,0.7)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  zIndex: 999
+  zIndex: 999,
 };
 
 const modalBox = {
@@ -295,18 +311,17 @@ const modalBox = {
   padding: "2rem",
   borderRadius: "10px",
   width: "90%",
-  maxWidth: "400px"
+  maxWidth: "400px",
 };
 
 const closeBtn = {
   position: "absolute",
-  top: "10px",
-  right: "15px",
+  top: "10px", right: "15px",
   background: "transparent",
   border: "none",
   color: "#fff",
   fontSize: "18px",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
 const input = {
@@ -316,7 +331,7 @@ const input = {
   background: "#050810",
   border: "1px solid rgba(255,255,255,0.1)",
   color: "#fff",
-  borderRadius: "6px"
+  borderRadius: "6px",
 };
 
 const submitBtn = {
@@ -325,5 +340,22 @@ const submitBtn = {
   border: "none",
   padding: "10px",
   width: "100%",
-  cursor: "pointer"
+  cursor: "pointer",
 };
+
+const appList = {
+  listStyle: "none",
+  padding: 0,
+  margin: 0,
+  maxWidth: "600px",
+};
+ 
+const appItem = {
+  display: "flex",
+  alignItems: "flex-start",
+  gap: "8px",
+  color: "#9aa4b2",
+  padding: "6px 0",
+  borderBottom: "1px solid rgba(255,255,255,0.05)",
+};
+ 
