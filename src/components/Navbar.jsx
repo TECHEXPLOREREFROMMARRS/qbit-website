@@ -10,27 +10,19 @@ export default function Navbar({ activePage, onNav }) {
 
   const timeoutRef = useRef(null);
 
-  // SCROLL EFFECT
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // SAFE OPEN
   const handleEnter = () => {
     clearTimeout(timeoutRef.current);
     setShowProducts(true);
   };
 
-  // DELAY CLOSE (NO FLICKER)
   const handleLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setShowProducts(false);
-    }, 180);
+    timeoutRef.current = setTimeout(() => setShowProducts(false), 180);
   };
 
   return (
@@ -47,9 +39,7 @@ export default function Navbar({ activePage, onNav }) {
         transition: "0.3s",
         background: scrolled ? "rgba(4,7,15,0.9)" : "transparent",
         backdropFilter: scrolled ? "blur(10px)" : "none",
-        borderBottom: scrolled
-          ? "1px solid rgba(255,255,255,0.08)"
-          : "none"
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none"
       }}
     >
       <div
@@ -60,14 +50,12 @@ export default function Navbar({ activePage, onNav }) {
           padding: "0 1.5rem",
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between"
+          justifyContent: "space-between",
+          position: "relative"   /* ← anchor for the dropdown */
         }}
       >
         {/* LOGO */}
-        <div
-          onClick={() => onNav && onNav("Home")}
-          style={{ cursor: "pointer" }}
-        >
+        <div onClick={() => onNav && onNav("Home")} style={{ cursor: "pointer" }}>
           <img src="/qbits-logo.png" style={{ height: "42px" }} />
         </div>
 
@@ -79,90 +67,132 @@ export default function Navbar({ activePage, onNav }) {
             return (
               <div
                 key={item}
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  alignItems: "center"
-                }}
+                style={{ position: "relative", display: "flex", alignItems: "center" }}
                 onMouseEnter={isProducts ? handleEnter : undefined}
                 onMouseLeave={isProducts ? handleLeave : undefined}
               >
-                {/* BUTTON */}
                 <button
                   onClick={() => onNav && onNav(item)}
                   style={navBtn(activePage, item)}
                 >
                   {item}
                 </button>
-
-                {/* PRODUCTS DROPDOWN */}
-                {isProducts && showProducts && (
-                  <div
-                    className="mega-menu-horizontal"
-                    onMouseEnter={handleEnter}
-                    onMouseLeave={handleLeave}
-                  >
-                    {/* COLUMN 1 — CATEGORIES */}
-                    <div className="mega-col">
-                      {(PRODUCT_CATEGORIES || []).map((cat, index) => (
-                        <div
-                          key={cat.name}
-                          className={`mega-title ${
-                            index === activeCategory ? "active" : ""
-                          }`}
-                          onMouseEnter={() => setActiveCategory(index)}
-                          onClick={() => {
-                            localStorage.setItem(
-                              "selectedCategory",
-                              cat.name
-                            );
-                            setShowProducts(false);
-                            onNav && onNav("Products");
-                          }}
-                        >
-                          {cat.name}
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* COLUMN 2 — PRODUCTS */}
-                    <div className="mega-col">
-                      {(PRODUCT_CATEGORIES[activeCategory]?.products || []).map(
-                        (p) => (
-                          <div
-                            key={p.id}
-                            className="mega-item"
-                            onClick={() => {
-                              try {
-                                localStorage.setItem(
-                                  "selectedProduct",
-                                  JSON.stringify(p)
-                                );
-                              } catch (e) {
-                                console.error("Storage error:", e);
-                              }
-
-                              setShowProducts(false);
-                              onNav && onNav("ProductDetail");
-                            }}
-                          >
-                            {p.name}
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}
         </div>
+
+        {/* DROPDOWN — anchored to the full navbar container, not the button */}
+        {showProducts && (
+          <div
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            style={{
+              position: "absolute",
+              top: "70px",
+              right: 0,                              /* ← flush to right edge of container */
+              background: "rgba(4,7,15,0.97)",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "10px",
+              display: "flex",
+              gap: "0",
+              minWidth: "520px",
+              maxWidth: "680px",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+              zIndex: 999,
+              overflow: "hidden"
+            }}
+          >
+            {/* COLUMN 1 — CATEGORIES */}
+            <div
+              style={{
+                minWidth: "160px",
+                borderRight: "1px solid rgba(255,255,255,0.08)",
+                padding: "0.5rem 0"
+              }}
+            >
+              {(PRODUCT_CATEGORIES || []).map((cat, index) => (
+                <div
+                  key={cat.name}
+                  onMouseEnter={() => setActiveCategory(index)}
+                  onClick={() => {
+                    localStorage.setItem("selectedCategory", cat.name);
+                    setShowProducts(false);
+                    onNav && onNav("Products");
+                  }}
+                  style={{
+                    padding: "10px 20px",
+                    fontSize: "0.88rem",
+                    cursor: "pointer",
+                    color: index === activeCategory ? "#00C8FF" : "#9aa4b2",
+                    background:
+                      index === activeCategory
+                        ? "rgba(0,200,255,0.06)"
+                        : "transparent",
+                    borderLeft:
+                      index === activeCategory
+                        ? "2px solid #00C8FF"
+                        : "2px solid transparent",
+                    transition: "0.15s",
+                    whiteSpace: "nowrap"
+                  }}
+                >
+                  {cat.name}
+                </div>
+              ))}
+            </div>
+
+            {/* COLUMN 2 — PRODUCTS */}
+            <div
+              style={{
+                flex: 1,
+                padding: "0.5rem 0",
+                overflowY: "auto",
+                maxHeight: "420px"
+              }}
+            >
+              {(PRODUCT_CATEGORIES[activeCategory]?.products || []).map((p) => (
+                <div
+                  key={p.id}
+                  onClick={() => {
+                    try {
+                      localStorage.setItem("selectedProduct", JSON.stringify(p));
+                    } catch (e) {
+                      console.error("Storage error:", e);
+                    }
+                    setShowProducts(false);
+                    onNav && onNav("ProductDetail");
+                  }}
+                  style={{
+                    padding: "9px 20px",
+                    fontSize: "0.85rem",
+                    color: "#9aa4b2",
+                    cursor: "pointer",
+                    transition: "0.15s",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "#fff";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "#9aa4b2";
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  {p.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
 }
 
-/* BUTTON STYLE */
 const navBtn = (activePage, item) => ({
   background: "none",
   border: "none",
