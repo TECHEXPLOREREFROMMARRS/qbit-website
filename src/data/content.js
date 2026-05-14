@@ -243,136 +243,118 @@ export const PRODUCT_DETAILS = {
   ]
 },
 
-  "din-switch":  {
+  "din-switch": {
   image: "/products/DIN Mounted Industrial Switch.png",
-  
-  desc: "DIN-Rail Mounted Industrial Ethernet Switches are rugged networking solutions designed for reliable communication in demanding industrial environments. Built with durable metal enclosures, they are engineered to withstand extreme temperatures, vibration, dust, and electrical interference, ensuring stable operation in critical applications. Designed for quick and secure installation on standard DIN rails, these switches fit seamlessly inside industrial control panels and cabinets. They enable efficient connectivity between PLCs, sensors, controllers, HMIs, and monitoring systems while supporting high-speed, real-time data communication. With features such as network redundancy, traffic prioritization, and enhanced security, DIN-rail industrial Ethernet switches deliver dependable network performance for industrial automation, manufacturing, power utilities, transportation, and smart infrastructure applications.",
+  desc: "DIN-Rail mounted industrial Layer-3 managed Ethernet switch with TSN support for reliable, real-time industrial networking.",
 
-  Overview: "TSN-6325-8T4S4X is a DIN-rail mounted industrial Layer-3 managed Ethernet switch with TSN support, designed for reliable industrial networking and real-time communication applications.",
+  Overview: "TSN-6325-8T4S4X is a DIN-rail mounted industrial Layer-3 managed Ethernet switch with TSN support, designed for reliable industrial networking and real-time communication applications. It offers 8 × Gigabit RJ45 ports, 4 × 1G/2.5G SFP slots, and 4 × 10G SFP+ uplinks, combining high-speed connectivity with IEEE 1588v2 PTP and TSN capabilities. With Layer-3 routing, ERPS ring redundancy, and an IP30-rated aluminum enclosure, it delivers dependable performance across industrial automation, manufacturing, power utilities, transportation, and smart infrastructure.",
 
   features: [
-    "8 × Gigabit RJ45 Ethernet ports",
-    "4 × 1G/2.5G SFP slots",
-    "4 × 10G SFP+ uplink ports",
-    "IEEE 1588v2 PTP & TSN support",
-    "Layer-3 routing support",
-    "ERPS ring redundancy",
-    "Industrial IP30 aluminum enclosure",
-    "Wide operating temperature: -40°C to 75°C",
-    "Dual redundant power input",
-    "Web, CLI & SNMP management"
+    "High-density port configuration — 8 × Gigabit RJ45, 4 × 1G/2.5G SFP, and 4 × 10G SFP+ uplink ports for flexible, scalable connectivity",
+    "IEEE 1588v2 PTP & TSN support (802.1AS, 802.1Qbv, 802.1Qci) for precise time synchronization and deterministic real-time communication",
+    "Layer-3 routing with RIPv2, OSPFv2, and OSPFv3 for advanced network segmentation and inter-VLAN routing",
+    "ERPS ring redundancy for fast network recovery and high availability in critical industrial topologies",
+    "Industrial IP30 aluminum enclosure with wide operating temperature range of -40°C to 75°C and ESD 6KV DC protection",
+    "Dual redundant power input (DC 9–48V / AC 24V) with Web, CLI, and SNMP management support"
   ],
 
   specs: [
-    ["Type", "Industrial Layer-3 Managed Switch"],
-    ["Ports", "8 × RJ45 + 4 × SFP + 4 × SFP+"],
-    ["Switch Fabric", "116Gbps"],
-    ["Routing", "RIPv2, OSPFv2, OSPFv3"],
-    ["TSN Support", "802.1AS, 802.1Qbv, 802.1Qci"],
-    ["Power Input", "DC 9–48V / AC 24V"],
-    ["Protection", "ESD 6KV DC"],
-    ["Mounting", "DIN-Rail / Wall Mount"],
-    ["Operating Temp.", "-40°C to 75°C"],
-    ["Enclosure", "IP30 Aluminum"]
+    ["Type",           "Industrial Layer-3 Managed Switch"],
+    ["Ports",          "8 × RJ45 + 4 × SFP + 4 × SFP+"],
+    ["Switch Fabric",  "116 Gbps"],
+    ["Routing",        "RIPv2, OSPFv2, OSPFv3"],
+    ["TSN Support",    "802.1AS, 802.1Qbv, 802.1Qci"],
+    ["Power Input",    "DC 9–48V / AC 24V"],
+    ["Protection",     "ESD 6KV DC"],
+    ["Mounting",       "DIN-Rail / Wall Mount"],
+    ["Operating Temp", "-40°C to 75°C"],
+    ["Enclosure",      "IP30 Aluminum"]
   ],
 
   applications: [
-    "Industrial automation",
-    "Factory monitoring systems",
-    "Transportation networks",
-    "Power utility communication",
-    "5G base stations",
-    "Time-critical industrial networks"
+    "Industrial automation — real-time control and communication between PLCs, sensors, HMIs, and controllers",
+    "Factory monitoring systems — high-speed, reliable data exchange across production floors",
+    "Transportation networks — ruggedized connectivity for trackside, rail, and traffic management infrastructure",
+    "Power utility communication — dependable networking for substations and smart grid systems",
+    "5G base stations — time-sensitive fronthaul networking with TSN and PTP synchronization",
+    "Time-critical industrial networks — deterministic Ethernet for Industry 4.0 and IIoT deployments"
   ]
 },
 
 "tsn3": {
   image: "/products/TSN_ATE_Tester.png",
 
-  desc: "The TSN ATE/Compliance Tester is a high-performance automated validation platform designed for testing and compliance verification of Time-Sensitive Networking (TSN) devices and networks. Built on the NI PXI modular platform, it enables deterministic traffic generation, synchronized packet capture, timing analysis, and automated reporting for IEEE 802.1 TSN standards. The solution supports real-time validation of scheduling, synchronization, redundancy, preemption, policing, and traffic shaping features for industrial Ethernet and next-generation deterministic communication systems.",
+  desc: "Automated TSN compliance and validation tester built on NI PXI architecture for IEEE 802.1 TSN device and network testing.",
 
-  Overview: "A 4-port TSN Automated Test Equipment (ATE) platform based on NI PXI architecture for validating TSN compliance, synchronization accuracy, deterministic traffic behavior, and real-time Ethernet performance.",
+  Overview: "The TSN ATE/Compliance Tester is a high-performance automated validation platform built on the NI PXI modular architecture, designed for testing and compliance verification of Time-Sensitive Networking devices and networks. It enables deterministic traffic generation, synchronized packet capture, timing analysis, and automated reporting against IEEE 802.1 TSN standards. The platform supports real-time validation of scheduling, synchronization, redundancy, preemption, policing, and traffic shaping across industrial Ethernet and next-generation deterministic communication systems.",
 
   features: [
-    "4 × 1G TSN Ethernet test ports",
-    "IEEE 802.1 TSN compliance testing",
-    "Deterministic traffic generation & capture",
-    "gPTP synchronization analysis",
-    "Frame preemption & FRER validation",
-    "Automated pass/fail reporting",
-    "Real-time latency & jitter analysis",
-    "Multi-stream concurrent traffic testing",
-    "PCAP capture & Wireshark integration",
-    "NI PXI modular architecture"
+    "4 × 1G TSN Ethernet test ports with multi-stream concurrent traffic generation and capture for comprehensive load testing",
+    "IEEE 802.1 TSN compliance testing covering 802.1AS, Qbv, Qbu, Qci, Qav, and 802.1CB standards",
+    "gPTP synchronization analysis with real-time latency, jitter, and packet loss measurement for deterministic performance validation",
+    "Frame preemption (Qbu) and FRER (802.1CB) validation for redundancy and fault-tolerance verification",
+    "Automated pass/fail reporting with PCAP capture and Wireshark integration for deep packet-level analysis",
+    "NI PXI modular architecture (PXI-1095 chassis, PXIe-8881 controller, PXIe-6592 traffic engine, PXIe-6674T timing module) for scalable, high-precision test configuration"
   ],
 
   specs: [
-    ["Platform", "NI PXI"],
-    ["Chassis", "NI PXI-1095"],
-    ["Controller", "NI PXIe-8881"],
-    ["Traffic Engine", "NI PXIe-6592"],
-    ["Timing Module", "NI PXIe-6674T"],
-    ["Ports", "4 × 1G TSN Ethernet"],
+    ["Platform",            "NI PXI"],
+    ["Chassis",             "NI PXI-1095"],
+    ["Controller",          "NI PXIe-8881"],
+    ["Traffic Engine",      "NI PXIe-6592"],
+    ["Timing Module",       "NI PXIe-6674T"],
+    ["Ports",               "4 × 1G TSN Ethernet"],
     ["Supported Standards", "802.1AS, Qbv, Qbu, Qci, Qav, 802.1CB"],
-    ["Traffic Analysis", "Latency, Jitter, Loss, Misorder"],
-    ["Reporting", "PCAP, CSV, Pass/Fail Reports"],
-    ["Operation Mode", "Compliance & Regression Testing"]
+    ["Traffic Analysis",    "Latency, Jitter, Loss, Misorder"],
+    ["Reporting",           "PCAP, CSV, Pass/Fail Reports"],
+    ["Operation Mode",      "Compliance & Regression Testing"]
   ],
 
   applications: [
-    "TSN switch validation",
-    "Industrial Ethernet compliance testing",
-    "Automotive TSN testing",
-    "Real-time network analysis",
-    "Deterministic Ethernet verification",
-    "5G and edge networking validation",
-    "Factory automation network testing",
-    "Protocol interoperability testing"
+    "TSN switch validation — compliance and regression testing of TSN-capable switches and endpoints",
+    "Industrial Ethernet — automated conformance testing for factory and process automation networks",
+    "Automotive TSN — in-vehicle network validation for ADAS, infotainment, and time-critical systems",
+    "5G & edge networking — fronthaul and edge node validation with deterministic Ethernet verification",
+    "Protocol interoperability — multi-vendor TSN device testing for cross-platform compatibility assurance",
+    "Factory automation — real-time network performance analysis for IIoT and Industry 4.0 deployments"
   ]
 },
-
 "tsn4": {
   image: "/products/TSN_Conformance_Tester.png",
 
-  desc: "The TSN Conformance Tester is an advanced validation platform designed for automated compliance testing of Time-Sensitive Networking (TSN) devices and networks. Built on the NI PXI architecture, it enables deterministic traffic generation, synchronized packet capture, protocol validation, and automated reporting for IEEE 802.1 TSN standards. The platform ensures accurate verification of synchronization, scheduling, redundancy, traffic shaping, and real-time Ethernet performance for industrial and next-generation networking applications.",
+  desc: "Automated TSN conformance tester built on NI PXI architecture for IEEE 802.1 TSN protocol validation and real-time Ethernet performance testing.",
 
-  Overview: "A 4-port TSN Conformance Tester based on the NI PXI platform for validating IEEE 802.1 TSN standards, deterministic Ethernet behavior, and real-time industrial communication performance.",
+  Overview: "The TSN Conformance Tester is an advanced automated validation platform built on the NI PXI modular architecture, designed for compliance testing of Time-Sensitive Networking devices and networks. It enables deterministic traffic generation, synchronized packet capture, protocol validation, and automated reporting against IEEE 802.1 TSN standards. The platform ensures accurate verification of synchronization, scheduling, redundancy, traffic shaping, and real-time Ethernet performance for industrial and next-generation networking applications.",
 
   features: [
-    "4 × 1G TSN Ethernet ports",
-    "IEEE 802.1 TSN conformance testing",
-    "Deterministic traffic generation & capture",
-    "gPTP synchronization validation",
-    "Frame preemption & FRER testing",
-    "Automated compliance reporting",
-    "Latency & jitter measurement",
-    "Multi-stream traffic testing",
-    "PCAP & CSV export support",
-    "NI PXI modular architecture"
+    "4 × 1G TSN Ethernet ports with multi-stream concurrent traffic generation and capture for thorough conformance coverage",
+    "IEEE 802.1 TSN conformance testing across 802.1AS, Qbv, Qbu, Qci, Qav, and 802.1CB standards",
+    "gPTP synchronization validation with real-time latency, jitter, and packet loss measurement for deterministic performance assurance",
+    "Frame preemption (Qbu) and FRER (802.1CB) testing for redundancy and traffic shaping verification",
+    "Automated compliance reporting with PCAP and CSV export for detailed audit trails and pass/fail analysis",
+    "NI PXI modular architecture (PXI-1095 chassis, PXIe-8881 controller, PXIe-6592 traffic engine, PXIe-6674T timing module) for scalable and precise test configuration"
   ],
 
   specs: [
-    ["Platform", "NI PXI"],
-    ["Chassis", "NI PXI-1095"],
-    ["Controller", "NI PXIe-8881"],
-    ["Traffic Engine", "NI PXIe-6592"],
-    ["Timing Module", "NI PXIe-6674T"],
-    ["Ports", "4 × 1G TSN Ethernet"],
+    ["Platform",            "NI PXI"],
+    ["Chassis",             "NI PXI-1095"],
+    ["Controller",          "NI PXIe-8881"],
+    ["Traffic Engine",      "NI PXIe-6592"],
+    ["Timing Module",       "NI PXIe-6674T"],
+    ["Ports",               "4 × 1G TSN Ethernet"],
     ["Supported Standards", "802.1AS, Qbv, Qbu, Qci, Qav, 802.1CB"],
-    ["Analysis", "Latency, Jitter, Packet Loss"],
-    ["Reports", "PCAP, CSV, Pass/Fail Reports"],
-    ["Modes", "Compliance & Regression Testing"]
+    ["Analysis",            "Latency, Jitter, Packet Loss"],
+    ["Reports",             "PCAP, CSV, Pass/Fail Reports"],
+    ["Modes",               "Compliance & Regression Testing"]
   ],
 
   applications: [
-    "TSN device conformance testing",
-    "Industrial Ethernet validation",
-    "Automotive TSN verification",
-    "Deterministic network testing",
-    "Protocol interoperability testing",
-    "Factory automation validation",
-    "Real-time communication analysis",
-    "5G and edge networking validation"
+    "TSN device conformance testing — automated validation of TSN-capable switches, endpoints, and controllers",
+    "Industrial Ethernet — conformance and regression testing for factory and process automation networks",
+    "Automotive TSN — verification of in-vehicle TSN networks for ADAS, infotainment, and safety-critical systems",
+    "5G & edge networking — deterministic Ethernet validation for fronthaul and edge node deployments",
+    "Protocol interoperability — multi-vendor TSN device testing to ensure cross-platform compatibility",
+    "Factory automation — real-time communication analysis for IIoT and Industry 4.0 network deployments"
   ]
 },
 
@@ -492,8 +474,7 @@ export const PRODUCT_DETAILS = {
 "tsn12": {
   image: "/products/TSN IP.png",
 
-  desc: "FPGA/ASIC-based Time Sensitive Networking (TSN) IP solution delivering deterministic, low-latency Ethernet communication with full IEEE TSN compliance for industrial and mission-critical applications.",
-
+  desc: "FPGA/ASIC TSN IP core delivering deterministic, low-latency Ethernet with full IEEE TSN compliance for industrial applications.",
   Overview: "Qbit Labs’ TSN Solution is a configurable TSN IP core designed for FPGA and ASIC platforms. It enables deterministic Ethernet communication with advanced TSN features including time-aware shaping, frame preemption, PSFP, FRER, and gPTP synchronization. The solution supports up to 24 ports with speeds ranging from 10 Mbps to 10 Gbps, making it suitable for industrial automation, automotive networking, aerospace, and real-time control systems.",
 
   features: [
@@ -712,7 +693,7 @@ specs: [
 "qbl-net": {
   image: "/products/QBL_NET_X1000.png",
 
-  desc: "The QBL-NET-X1000 Compact TSN Network Tester is a portable, lab-grade testing platform designed for Layer 2/Layer 3 performance validation, deterministic networking verification, and TSN compliance testing. The platform provides integrated traffic generation, synchronized analysis, latency and jitter measurement, and conformance validation for industrial and automotive Ethernet applications. With four simultaneous Gigabit Ethernet ports and hardware-based timestamping, the tester delivers accurate and reliable network performance analysis for next-generation deterministic communication systems.",
+  desc: "Portable lab-grade TSN network tester with 4-port GbE, hardware timestamping, and Layer 2/3 performance validation for industrial and automotive Ethernet.",
 
   Overview: "A compact 4-port TSN network tester for Layer 2/Layer 3 traffic generation, TSN conformance testing, latency analysis, and deterministic Ethernet validation.",
 
