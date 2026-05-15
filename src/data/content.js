@@ -198,9 +198,12 @@ export const PRODUCT_CATEGORIES = [
   },
 
   {
-    name: "WR",
+    name: " Time and Frequency",
     products: [
-      { id: "wr-switch", name: "White Rabbit Switch", brochure: "/brochures/wr/White Rabbit Switch (WRSv4).pdf" }
+      { id: "Time Synchronization", name: "Time Synchronization", brochure: "/brochures/wr/Time Synchronization.pdf" },
+      { id: "Time Sync Solutions (QWR-HW-SX-02R)", name: "Time Sync Solutions (QWR-HW-SX-02R)", brochure: "/brochures/wr/QbitLabs Time Sync Solution (QWR-HW-SX-02R).pdf" },
+      { id: "Time Sync IP with Daisy Chain Support (QWR-IP-SX-02)", name: "Time Sync IP with Daisy Chain Support (QWR-IP-SX-02)", brochure: "/brochures/wr/QbitLabs Time Sync IP with Daisy Chain Support (QWR-IP-SX-02).pdf" },
+      { id: "Time Sync IP (QWR-IP-EP-02)", name: "Time Sync IP (QWR-IP-EP-02)", brochure: "/brochures/wr/Qbit Labs Time Sync IP (QWR-IP-EP-02).pdf" }
     ]
   }
 
@@ -976,7 +979,7 @@ specs: [
   ]
 },
 
-"wr-switch": {
+"Time Sync Solutions (QWR-HW-SX-02R)": {
   image: "/products/WR Switch (WRSv4).png",
     desc: "White Rabbit switch delivering sub-nanosecond synchronisation for precision timing networks.",
     Overview: "The Qbit White Rabbit Switch v4 (WRSv4) is a high-precision Ethernet switch designed to deliver deterministic data transfer with sub-nanosecond time synchronization over standard optical fiber networks. Developed as part of the CERN-led White Rabbit collaboration, it combines advanced timing technology with reliable Layer-2 switching capabilities. The WRSv4 features a 24-port Gigabit Ethernet switching fabric with an enhanced boundary clock that extends IEEE 1588-2008 (PTP) for highly accurate phase, frequency, and time distribution. Using Synchronous Ethernet, hardware timestamping, and precise clock alignment techniques, the system ensures stable, low-latency, and highly synchronized network performance. Built on open-source hardware and software architecture, the switch supports QoS control, VLAN processing, monitoring tools, and robust management interfaces. It is ideally suited for mission-critical applications such as scientific research facilities, telecommunications, smart grids, finance, and defense systems requiring ultra-precise timing and reliable network operation.",
@@ -1004,7 +1007,112 @@ specs: [
 ],
 },
 
+"Time Synchronization": {
+  image: "/products/QbitLabs Time Sync IP.png",
+  desc: "High-precision FPGA soft IP core delivering sub-nanosecond synchronization over 1 Gbps optical fiber networks using White Rabbit technology.",
+  Overview: "The QbitLabs Time Sync IP is a high-precision FPGA soft IP core built on White Rabbit technology, delivering sub-nanosecond synchronization accuracy over 1 Gbps optical fiber networks with boundary clock functionality, SyncE, hardware timestamping, and dynamic phase and frequency correction — eliminating the need for external dedicated timing hardware.",
 
+  features: [
+    "4-port AMD MPSoC-based hardware with redundant link support",
+    "2-port node configurable independently in Master or Slave mode",
+    "Sub-nanosecond synchronization over 1 Gbps optical fiber using White Rabbit protocol",
+    "High-accuracy timing over Ethernet based on IEEE 1588-2019 High Accuracy profile",
+    "Plug-and-play deployment over 10 km optical fiber links without calibration, extendable up to 100 km using daisy-chain topology",
+    "Dynamic compensation for environmental variations such as temperature-induced asymmetry",
+    "Deterministic timing integration directly within the FPGA",
+    "No requirement for expensive external oscillators, VCXOs, or dedicated timing hardware",
+    "Optimized FPGA resource utilization for efficient implementation"
+  ],
+  specs: [
+    ["Type", "FPGA Soft IP Core"],
+    ["Accuracy", "Sub-nanosecond"],
+    ["Protocol", "White Rabbit / IEEE 1588-2019 / SyncE"],
+    ["Connectivity", "4-Port Optical Ethernet with Redundant Link"],
+    ["Range", "Up to 10 km Plug-and-Play, 100 km via Daisy Chain"],
+    ["Platform", "AMD MPSoC"]
+  ],
+  applications: [
+    "Telecom and 5G synchronization networks",
+    "Scientific and research laboratories",
+    "Smart grid and power distribution systems",
+    "Aerospace and defense timing systems",
+    "Industrial automation and control networks",
+    "Broadcasting and media synchronization",
+    "High-speed data acquisition systems",
+    "Financial trading and time-sensitive infrastructure"
+  ],
+},
+
+"Time Sync IP with Daisy Chain Support (QWR-IP-SX-02)": {
+  image: "/products/QbitLabs Time Sync IP Daisy Chain.png",
+  desc: "High-precision FPGA soft IP core with daisy chain support for scalable sub-nanosecond synchronization over 1 Gbps optical fiber networks using White Rabbit technology.",
+  Overview: "The QbitLabs Time Sync IP with Daisy Chain Support is a high-precision FPGA soft IP core built on White Rabbit technology, delivering sub-nanosecond synchronization over 1 Gbps optical fiber with scalable multi-node daisy chain topology, SyncE, hardware timestamping, and dynamic phase and frequency correction — all without the need for external dedicated timing hardware.",
+
+  features: [
+    "2-port node configurable independently in Master (Daisy Chain) or Slave mode",
+    "Configurable 1-port or 2-port architecture at compile time",
+    "Sub-nanosecond synchronization over 1 Gbps optical fiber using White Rabbit protocol",
+    "High-accuracy timing based on IEEE 1588-2019 High Accuracy profile",
+    "Plug-and-play deployment over 10 km optical fiber links without calibration, extendable up to 100 km using daisy chain topology",
+    "Dynamic compensation for environmental asymmetries such as temperature variations",
+    "Deterministic timing integration directly within the FPGA",
+    "No requirement for external oscillators, clocks, VCXOs, or dedicated timing hardware",
+    "Optimized FPGA resource utilization for efficient implementation"
+  ],
+  specs: [
+    ["Type", "FPGA Soft IP Core"],
+    ["Accuracy", "Sub-nanosecond"],
+    ["Protocol", "White Rabbit / IEEE 1588-2019 / SyncE"],
+    ["Port Config", "1-Port or 2-Port Configurable with Daisy Chain Support"],
+    ["Range", "Up to 10 km Plug-and-Play, 100 km via Daisy Chain"]
+  ],
+  applications: [
+    "Telecom and 5G timing networks",
+    "Distributed scientific experiments",
+    "Smart grid synchronization",
+    "Industrial automation systems",
+    "Aerospace and defense networks",
+    "Broadcasting and media synchronization",
+    "High-speed data acquisition",
+    "Large-scale distributed timing infrastructure"
+  ],
+},
+
+"Time Sync IP (QWR-IP-EP-02)": {
+  image: "/products/QbitLabs Time Sync IP Core.png",
+  desc: "FPGA soft IP core delivering sub-nanosecond White Rabbit synchronization over 1 Gbps optical fiber, with no external timing hardware required.",
+  Overview: "The QbitLabs Time Sync IP is an FPGA soft IP core implementing White Rabbit boundary clock functionality with SyncE, hardware timestamping, and dynamic phase and frequency correction to deliver sub-nanosecond synchronization accuracy over 1 Gbps optical fiber — entirely using standard FPGA resources, with no external dedicated timing hardware needed.",
+
+  features: [
+    "2-port node configurable independently in Master (daisy-chain) or Slave mode",
+    "Configurable 1-port or 2-port implementation at compile time",
+    "Sub-nanosecond synchronization over 1 Gbps optical fiber using White Rabbit protocol",
+    "High-accuracy timing based on IEEE 1588-2019 High Accuracy profile",
+    "Plug-and-play deployment over 10 km optical fiber links, extendable up to 100 km using daisy-chain topology",
+    "Dynamic compensation for environmental variations such as temperature-induced asymmetry",
+    "Deterministic timing integration directly within the FPGA",
+    "No requirement for external oscillators, VCXOs, or dedicated timing hardware",
+    "Optimized FPGA resource utilization for efficient implementation"
+  ],
+  specs: [
+    ["Type", "FPGA Soft IP Core"],
+    ["Accuracy", "Sub-nanosecond"],
+    ["Protocol", "White Rabbit / IEEE 1588-2019 / SyncE"],
+    ["Port Config", "1-Port or 2-Port Configurable"],
+    ["Range", "Up to 10 km Plug-and-Play, 100 km via Daisy Chain"]
+  ],
+  applications: [
+    "Telecom and 5G network synchronization",
+    "Scientific research and particle accelerators",
+    "Smart grid and power utility networks",
+    "Industrial automation and control systems",
+    "Aerospace and defense timing applications",
+    "Broadcasting and media synchronization",
+    "High-speed data acquisition systems",
+    "Time-sensitive Ethernet networks"
+  ],
+},
+//
 "ip1": {
   image: "/products/TCP IP Offload Engine.png",
   desc: "High-performance TCP/IP offload engine for 1G and 10G Ethernet, reducing CPU overhead in demanding network applications.",
