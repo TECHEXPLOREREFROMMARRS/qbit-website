@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { C, FD, FB } from "../styles/theme";
+import { PRODUCT_DETAILS } from "../data/content";
+
 
 function ProductCard({ product: p, onNav }) {
   const [expanded, setExpanded] = useState(false);
@@ -71,9 +73,9 @@ function ProductCard({ product: p, onNav }) {
         </h3>
 
         {/* TAGLINE */}
-        <p style={{ fontSize: "0.85rem", color: "#9aa4b2" }}>
-          {p.tagline}
-        </p>
+       <p style={{ fontSize: "0.85rem", color: "#9aa4b2" }}>
+  {PRODUCT_DETAILS[p.id]?.desc || ""}  {/* ✅ */}
+</p>
 
         {/* FEATURES */}
         <div>

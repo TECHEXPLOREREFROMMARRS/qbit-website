@@ -198,7 +198,7 @@ export const PRODUCT_CATEGORIES = [
   },
 
   {
-    name: " Time and Frequency",
+    name:"Time and Frequency",
     products: [
       { id: "Time Synchronization", name: "Time Synchronization", brochure: "/brochures/wr/Time Synchronization.pdf" },
       { id: "Time Sync Solutions (QWR-HW-SX-02R)", name: "Time Sync Solutions (QWR-HW-SX-02R)", brochure: "/brochures/wr/QbitLabs Time Sync Solution (QWR-HW-SX-02R).pdf" },
